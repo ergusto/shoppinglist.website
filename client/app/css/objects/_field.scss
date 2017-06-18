@@ -1,0 +1,44 @@
+@import '../imports';
+
+.field {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	line-height: 1.42857143;
+	border-radius: 2px;
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding: 10px;
+	border: 1px solid #ccc;
+	box-shadow: $box-shadow;
+	cursor: text;
+	color: $muted-grey;
+	font-size: 1rem;
+
+	&:focus {
+		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+		background: white;
+		outline: none;
+	}
+
+	&[readonly] {
+		cursor: not-allowed;
+	}
+
+	&:-webkit-autofill {
+		background-color: white;
+		color: $muted-grey;
+		-webkit-box-shadow: 0 0 0 100px #fff inset;
+		-moz-box-shadow: 0 0 0 100px #fff inset;
+		box-shadow: 0 0 0 100px #fff inset;
+		-webkit-text-fill-color: $muted-grey;
+
+		&:focus {
+			-webkit-text-fill-color: $muted-grey;
+		}
+	}
+}

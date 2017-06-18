@@ -1,0 +1,16 @@
+.media {
+	overflow: hidden;
+
+	&__left, &__body, &__right {
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	&--middle {
+		vertical-align: middle;
+	}
+
+	&__body {
+		width: 100%;
+	}
+}

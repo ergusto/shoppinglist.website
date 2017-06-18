@@ -1,0 +1,46 @@
+@import '../imports';
+
+.tiny {
+	font-size: $smaller;
+}
+
+.small {
+	font-size: $smaller;
+}
+
+.medium {
+	font-size: $medium;
+}
+
+.big {
+	font-size: $big;
+}
+
+.bigger {
+	font-size: $bigger;
+}
+
+.huge {
+	font-size: $huge;
+}
+
+.white {
+	color: white;
+}
+
+
+
+
+
+
+.bold {
+	font-weight: 600;
+}
+
+.text-centred {
+	text-align: center;
+}
+
+.lead {
+	font-size: $big;
+}

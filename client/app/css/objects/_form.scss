@@ -1,0 +1,24 @@
+@import '../imports';
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.form-error, .field-error {
+	display: inline-block;
+	color: #777;
+	float: left;
+	padding: 0;
+}
+
+.field-error {
+	padding-left: 12px;
+	margin-top: 6px;
+}
+
+.form-error {
+	padding-left: 12px;
+	margin-bottom: 10px;
+}

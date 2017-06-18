@@ -1,0 +1,36 @@
+.item-edit-form {
+	padding: 0 10px;
+
+	textarea {
+		resize: none;
+	}
+
+	.field {
+		background: rgba(32, 53, 102, 0.6);
+		border: 0px;
+		margin: 10px 0;
+		color: white;
+		font-size: 90%;
+
+		&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+			color: rgba(255, 255, 255, 0.8);
+		}
+		&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			color: rgba(255, 255, 255, 0.8);
+		}
+		&::-moz-placeholder { /* Mozilla Firefox 19+ */
+			color: rgba(255, 255, 255, 0.8);
+		}
+		&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			color: rgba(255, 255, 255, 0.8);
+		}
+		&::-ms-input-placeholder { /* Microsoft Edge */
+			color: rgba(255, 255, 255, 0.8);
+		}
+
+		&:focus {
+			background: #203566;
+		}
+
+	}
+}
