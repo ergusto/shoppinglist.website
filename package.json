@@ -6,8 +6,7 @@
   "scripts": {
     "postinstall": "npm run build.production",
     "build.production": "./node_modules/.bin/webpack --config client/webpack/production.js -p",
-    "build": "./node_modules/.bin/webpack --config client/webpack/local.js",
-    "watch": "./node_modules/.bin/webpack-dev-server --config client/webpack/local.js --inline --content-base client/app"
+    "build": "./node_modules/.bin/webpack-dev-server --config client/webpack/local.js --inline --content-base client/app"
   },
   "author": "",
   "license": "ISC",

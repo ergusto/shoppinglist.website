@@ -11,9 +11,9 @@ import 'font-awesome/scss/font-awesome.scss';
 
 viewportUnitsBuggyfill.init();
 
-const store = configureStore();
-
 document.body.classList.add('bg-gradient');
+
+const store = configureStore();
 
 const app = () => (
 	<Provider store={store}>
