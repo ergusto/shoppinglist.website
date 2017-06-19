@@ -138,18 +138,6 @@ export function getUrlDetails(url) {
 	return { hostname, pathname, protocol };
 }
 
-export function extend(obj) {
-	for (let i = 1, l = arguments.length; i < l; i++) {
-		const source = arguments[i];
-		for (const prop in source) {
-			if (hasOwnProperty(source, prop)) {
-				obj[prop] = source[prop];
-			}
-		}
-	}
-	return obj;
-}
-
 export function removeProtocol(url) {
 	return url.replace(/^https?:\/\//,'');
 }

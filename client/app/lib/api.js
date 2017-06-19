@@ -1,7 +1,7 @@
 import request from 'superagent';
 import history from './history.js';
 import { isAuthenticated, getToken, logout } from './auth.js';
-import { extend, setParams, isFunction, trim } from './tools.js';
+import { setParams, isFunction, trim } from './tools.js';
 import { getCookie } from './csrf.js';
 
 export const getBaseHeaders = () => {
@@ -13,13 +13,13 @@ export const getBaseHeaders = () => {
 };
 
 export const makeSafe = func => {
-	return extend(func(), {
+	return Object.assign({}, func(), {
 		'X-CSRFToken': getCookie(),
 	});
 };
 
 export const getAuthHeaders = () => {
-	return extend(getBaseHeaders(), {
+	return Object.assign({}, getBaseHeaders(), {
 		'Authorization': 'JWT ' + getToken(),
 	});
 };

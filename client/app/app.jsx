@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 
 import viewportUnitsBuggyfill from 'viewport-units-buggyfill';
 
-import App from './components/App.jsx';
-import configureStore from './store/configure.js';
+import Routes from './routes.jsx';
+import configureStore from './configureStore.js';
 
 import './css/site.scss';
 import 'font-awesome/scss/font-awesome.scss';
@@ -17,7 +17,7 @@ const store = configureStore();
 
 const app = () => (
 	<Provider store={store}>
-		<App />
+		<Routes />
 	</Provider>
 );
 

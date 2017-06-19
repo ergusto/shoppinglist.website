@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { GridContainer, Row, Column } from 'grid-react';
 import { getUser } from '../../lib/auth.js';
-import api from '../../lib/api.js';
-import Icon from '../object.icon/component.jsx';
-import ClickOutside from '../object.clickoutside/component.jsx';
 
 export default class Component extends React.Component {
 

@@ -16,7 +16,7 @@ const start = Component => (
 start(app);
 
 if (module.hot) {
-	module.hot.accept('./components/App.jsx', function() {
+	module.hot.accept('./app.jsx', function() {
 		start(app);
 	});
 }
