@@ -1,5 +1,4 @@
 import api from '../lib/api.js';
-import { getToken } from '../lib/auth.js';
 import {
 	ITEM_CREATE_REQUEST,
 	ITEM_CREATE_SUCCESS,
