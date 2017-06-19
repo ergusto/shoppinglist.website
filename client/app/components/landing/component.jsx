@@ -25,11 +25,11 @@ export default class Component extends React.Component {
 		return (
 			<div ref={wrapper => this.wrapper = wrapper} className='white justify-centre text-centred'>
 				<div>
-				<h1>shoppinglist.website</h1>
-				<hr />
-				<h3>A simple shopping list that does nothing more than list the things you want to buy.</h3>
-				<hr />
-				<Link to='/register' className='landing-register btn btn--blue btn--block'>Register</Link>	
+					<h1>shoppinglist.website</h1>
+					<hr />
+					<h3>A simple shopping list that does nothing more than list the things you want to buy.</h3>
+					<hr />
+					<Link to='/register' className='landing-register btn btn--blue btn--block'>Register</Link>	
 				</div>
 			</div>
 		);

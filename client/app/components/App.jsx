@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, Switch } from 'react-router';
-import PropTypes from 'prop-types';
 
 import { PublicRoute, ProtectedRoute, AuthBasedSwitch } from './route-helpers.jsx';
 import history from '../lib/history.js';
@@ -17,15 +16,6 @@ import Logout from './auth.logout/container.jsx';
 
 
 class App extends Component {
-
-	static childContextTypes = {
-		items: PropTypes.object,
-	};
-
-	getChildContext() {
-		const { items } = this.props;
-		return { items };
-	}
 
 	render() {
 		return (

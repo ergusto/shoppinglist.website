@@ -1,10 +1,8 @@
 from __future__ import unicode_literals
 
-from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 from django.db import models
-from django.db.models import Q
 
 from .managers import EmailAsUsernameUserManager
 
