@@ -1,0 +1,16 @@
+.item-list__next {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	margin: 15px 0;
+	background: rgba(32, 53, 102, 0.2);
+	border-radius: 5px;
+	font-size: 80%;
+
+	&:hover {
+		background: rgba(32, 53, 102, 0.5);
+	}
+}

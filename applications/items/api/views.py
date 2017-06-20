@@ -7,7 +7,7 @@ from .serializers import ItemSerializer
 class ItemViewSet(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
     permission_classes = (IsOwner,)
-    page_size = 20
+    page_size = 10
 
     def get_queryset(self):
         return self.request.user.items.filter(complete=False).order_by('-modified')

@@ -37,7 +37,7 @@ export default class Component extends React.Component {
 					this.description = description;
 					this.setDescriptionHeight();
 				}} onInput={this.descriptionChangeHandler} name='description' defaultValue={item.description} placeholder='description' rows='3'>{item.description}</Textarea>
-				<Submit className='btn btn--invisible btn--small' />
+				<Submit className='btn btn--invisible' />
 			</Form>
 		);
 	}

@@ -1,4 +1,5 @@
 import api from '../../lib/api.js';
+import { setParams } from '../../lib/tools.js';
 import {
 	ITEMS_REQUEST,
 	ITEMS_FAILURE,
@@ -23,25 +24,32 @@ export function itemsIsLoading(bool) {
 	};
 }
 
-export function itemsFetchDataSuccess(items) {
+export function itemsFetchDataSuccess(items, next, count) {
 	return {
 		type: ITEMS_SUCCESS,
 		payload: {
-			items
+			items,
+			count,
+			next
 		}
 	};
 }
 
 export function requestItems() {
-	return dispatch => {
+	return (dispatch, getState) => {
 		dispatch(itemsIsLoading(true));
+		const state = getState().items;
+		const url = setParams('/api/items/', {
+			limit: state.limit,
+			offset: state.offset,
+		});
 
-		api.auth.get('/api/items/', (err, res) => {
+		api.auth.get(url, (err, res) => {
 			dispatch(itemsIsLoading(false));
 
 			if (res.ok) {
-				const { results } = res.body;
-				dispatch(itemsFetchDataSuccess(results));
+				const { results, next, count } = res.body;
+				dispatch(itemsFetchDataSuccess(results, !!next, count));
 			} else {
 				dispatch(itemsHasErrored(true));
 			}
