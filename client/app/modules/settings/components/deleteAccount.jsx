@@ -13,7 +13,7 @@ export default class Component extends React.Component {
 	}
 
 	submit = ({ current_password }) => {
-		this.props.actions.deleteAccount();	
+		this.props.actions.deleteAccount(current_password);
 	};
 
 	render() {
