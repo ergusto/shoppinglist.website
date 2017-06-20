@@ -77,6 +77,7 @@ class DeleteAccountView(GenericAPIView):
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        self.request.user.delete()
+        self.request.user.is_active = False
+        self.request.user.save()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
