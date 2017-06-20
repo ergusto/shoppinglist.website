@@ -57,7 +57,8 @@ export default createReducer(initialState, {
 	},
 	[ITEM_MARK_COMPLETE_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
-			items: state.items.filter(item => item.id != payload.item.id)
+			items: state.items.filter(item => item.id != payload.item.id),
+			offset: state.offset === 0 ? state.offset : state.offset - 1,
 		});
 	},
 	[ITEM_EDIT_SUCCESS]: (state, payload) => {
