@@ -30,7 +30,6 @@ const PublicRouteBase = ({ isAuthenticated, component, ...rest }) => (
 );
 
 const AuthBasedSwitchBase = ({ isAuthenticated, authComponent, unauthComponent, ...rest }) => {
-	console.log(isAuthenticated);
 	const component = isAuthenticated ? authComponent : unauthComponent;
 	return <Route {...rest} render={props => createElement(component, props)} />;
 };
