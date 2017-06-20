@@ -14,6 +14,7 @@ export default class Component extends React.Component {
 		this.state = {
 			showBody: false,
 			showForm: false,
+			showCompleteConfirm: false,
 		};
 	}
 
@@ -24,6 +25,7 @@ export default class Component extends React.Component {
 			this.setState({
 				showBody: false,
 				showForm: false,
+				showCompleteConfirm: false,
 			});
 		} else {
 			this.setState({
@@ -53,6 +55,28 @@ export default class Component extends React.Component {
 		}
 	}
 
+	toggleCompleteConfirm = event => {
+		if (event) event.preventDefault();
+		this.setState({
+			showCompleteConfirm: !this.state.showCompleteConfirm,
+		});
+	};
+
+	renderMarkComplete() {
+		const { showCompleteConfirm } = this.state;
+
+		if (showCompleteConfirm) {
+			return (
+				<div>
+					<a onClick={this.toggleCompleteConfirm} href='#' className='item-cancel-mark-complete pull-right btn btn--small btn--invisible'>cancel</a>
+					<a onClick={this.markComplete} href='#' className='item-confirm-mark-complete pull-right btn btn--small btn--invisible margin-right-sm'>confirm</a>
+				</div>
+			);
+		} else {
+			return <a onClick={this.toggleCompleteConfirm} href='#' className='item-mark-complete pull-right btn btn--small btn--invisible'>complete</a>;
+		}
+	}
+
 	renderItemContent() {
 		const { showForm } = this.state;
 		const { item } = this.props;
@@ -72,7 +96,7 @@ export default class Component extends React.Component {
 			return (
 				<div className='item-body clearfix'>
 					<menu className='item-body-menu clearfix'>
-						<a onClick={this.markComplete} href='#' className='item-mark-complete pull-right btn btn--small btn--invisible'>complete</a>
+						{this.renderMarkComplete()}
 						{item.url ? <a href={item.url} className='item-url pull-right btn btn--small btn--invisible'>visit</a> : null}
 						<a onClick={this.toggleForm} href='#' className='item-edit pull-left btn btn--small btn--invisible'>{showForm ? 'cancel' : 'edit'}</a>
 					</menu>
