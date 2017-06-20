@@ -65,3 +65,15 @@ export function register(email, password, cb) {
 		if (cb) cb(err, res);
 	});
 }
+
+export function changePassword(current_password, new_password, cb) {
+	return api.auth.post('/api/change_password/', { current_password, new_password }, (err, res) => {
+		if (cb) cb(err, res);
+	});
+}
+
+export function deleteAccount(current_password, cb) {
+	return api.auth.post('/api/delete_account/', { current_password }, (err, res) => {
+		if (cb) cb(err, res);
+	});
+}

@@ -14,6 +14,7 @@ export default class Component extends React.Component {
 						<header className='site-header clearfix'>
 							<Link to='/' className='header-link btn btn--invisible pull-left'>shoppinglist.website</Link>
 							<Link to='/logout' className='header-link btn btn--invisible pull-right'>logout</Link>
+							<Link to='/settings' className='header-link btn btn--invisible pull-right'>settings</Link>
 						</header>
 					</Column>
 				</Row>

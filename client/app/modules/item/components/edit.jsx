@@ -30,8 +30,8 @@ export default class Component extends React.Component {
 	render() {
 		const { item } = this.props;
 		return (
-			<Form onSubmit={this.submit} className='item-edit-form'>
-				<TextInput name='title' placeholder='title' defaultValue={item.title} />
+			<Form noValidate onSubmit={this.submit} className='item-edit-form form--purple'>
+				<TextInput required name='title' placeholder='title' defaultValue={item.title} />
 				<URLInput name='url' placeholder='url' defaultValue={item.url} />
 				<Textarea elementRef={description => {
 					this.description = description;

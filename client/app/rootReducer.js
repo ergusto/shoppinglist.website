@@ -7,13 +7,15 @@ import create from './modules/item';
 import items from './modules/items';
 import login from './modules/login';
 import registration from './modules/registration';
+import settings from './modules/settings';
 
 const appReducer = combineReducers({
 	auth,
 	create,
 	items,
 	login,
-	registration
+	registration,
+	settings
 });
 
 const rootReducer = (state, action) => {

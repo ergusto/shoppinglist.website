@@ -1,0 +1,35 @@
+.settings {
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+}
+
+.settings-header {
+	padding: 10px 15px;
+	color: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	text-align: center;
+}
+
+.settings-body {
+	color: white;
+	background: rgba(32, 53, 102, 0.2);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+
+	p {
+		margin: 0;
+	}
+}
+
+.settings-form {
+	fieldset:last-of-type {
+		&.fieldset--has-error {
+			margin-bottom: 10px;
+		}	
+	}
+
+	.settings-form__cancel {
+		margin-left: 5px;
+	}
+}

@@ -8,21 +8,21 @@ import {
 
 import { authenticationSuccess } from '../auth';
 
+export function loginIsLoading(bool) {
+	return {
+		type: LOGIN_REQUEST,
+		payload: {
+			isLoading: bool
+		}
+	};
+}
+
 export function loginFailure(error, errors) {
 	return {
 		type: LOGIN_FAILURE,
 		payload: {
 			error,
 			errors
-		}
-	};
-}
-
-export function loginIsLoading(bool) {
-	return {
-		type: LOGIN_REQUEST,
-		payload: {
-			isLoading: bool
 		}
 	};
 }

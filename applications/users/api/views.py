@@ -8,13 +8,13 @@ from rest_framework import viewsets, permissions, parsers, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, GenericAPIView
 from rest_framework.views import APIView
 
 from rest_framework_jwt.views import JSONWebTokenAPIView
 from rest_framework_jwt.settings import api_settings
 
-from .serializers import UserSerializer, SimpleUserSerializer
+from .serializers import UserSerializer, SimpleUserSerializer, CurrentPasswordSerializer, ChangePasswordSerializer
 
 User = get_user_model()
 
@@ -40,7 +40,6 @@ class RegistrationView(CreateAPIView):
     permission_classes = (
         permissions.AllowAny,
     )
-    renderer_classes = (JSONRenderer,)
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
@@ -58,3 +57,26 @@ class RegistrationView(CreateAPIView):
         }
 
         return Response(response, status=status.HTTP_201_CREATED)
+
+class ChangePasswordView(GenericAPIView):
+    serializer_class = ChangePasswordSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.request.user.set_password(serializer.data['new_password'])
+        self.request.user.save()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+class DeleteAccountView(GenericAPIView):
+    serializer_class = CurrentPasswordSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.request.user.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
