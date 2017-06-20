@@ -60,8 +60,6 @@ export function deleteAccount(current_password, callback) {
 					}
 				}
 
-				console.log(errors)
-
 				dispatch(deleteAccountFailure(error, errors));
 			}
 		});

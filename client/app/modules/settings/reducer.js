@@ -1,12 +1,13 @@
 import createReducer from '../../createReducer.js';
+import { LOCATION_CHANGE } from 'react-router-redux';
+
 import {
 	CHANGE_PASSWORD_REQUEST,
 	CHANGE_PASSWORD_FAILURE,
 	CHANGE_PASSWORD_SUCCESS,
 	DELETE_ACCOUNT_REQUEST,
 	DELETE_ACCOUNT_FAILURE,
-	DELETE_ACCOUNT_SUCCESS,
-	RESET_SETTINGS_STATE
+	DELETE_ACCOUNT_SUCCESS
 } from './actionTypes.js';
 
 const initialState = {
@@ -55,7 +56,7 @@ export default createReducer(initialState, {
 			statusText: 'Accont successfully deleted.'
 		});
 	},
-	[RESET_SETTINGS_STATE]: (state, payload) => {
+	[LOCATION_CHANGE]: (state, payload) => {
 		return initialState;
-	}
+	},
 });
