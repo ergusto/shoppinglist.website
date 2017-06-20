@@ -9,7 +9,8 @@ import './style.scss';
 export default class Component extends React.Component {
 
 	componentDidMount() {
-		this.request();
+		const { items } = this.props;
+		if (!items.length) this.request();
 	}
 
 	request = () => {
