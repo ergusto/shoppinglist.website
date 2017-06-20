@@ -1,12 +1,12 @@
 import { AppContainer } from 'react-hot-loader';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 import app from './app.jsx';
 
 const start = Component => (
-	ReactDOM.render(
+	render(
 		<AppContainer>
 			<Component />
 		</AppContainer>,

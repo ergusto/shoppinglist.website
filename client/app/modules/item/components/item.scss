@@ -24,10 +24,10 @@
 	padding: 7px 15px;
 	cursor: pointer;
 	transition: all 0.3s linear;
+}
 
-	&:hover {
-		background: rgba(255, 255, 255, 0.12);
-	}
+.no-touch .item-header:hover {
+	background: rgba(255, 255, 255, 0.12);
 }
 
 .item-title {

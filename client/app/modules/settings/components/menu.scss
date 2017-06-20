@@ -6,10 +6,6 @@
 			display: block;
 			text-decoration: none;
 			transition: all 0.3s linear;
-
-			&:hover {
-				background: rgba(255, 255, 255, 0.1);
-			}
 		}
 		
 		&:first-child {
@@ -27,4 +23,8 @@
 			}
 		}
 	}
+}
+
+.no-touch .settings-menu li a:hover {
+	background: rgba(255, 255, 255, 0.1);
 }

@@ -26,11 +26,11 @@
 	&:first-child {
 		margin-left: 0px;
 	}
+}
 
-	&:hover {
-		background: rgba(255, 255, 255, 0.1);
-		color: white;
-	}
+.no-touch .btn.header-link:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: white;
 }
 
 .site-header .icon {

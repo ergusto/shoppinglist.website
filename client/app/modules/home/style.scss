@@ -9,8 +9,8 @@
 	background: rgba(32, 53, 102, 0.2);
 	border-radius: 5px;
 	font-size: 80%;
+}
 
-	&:hover {
-		background: rgba(32, 53, 102, 0.5);
-	}
+.no-touch .item-list__next:hover {
+	background: rgba(32, 53, 102, 0.5);
 }

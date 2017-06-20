@@ -7,10 +7,10 @@
 	transition: all 0.3s linear;
 	border-radius: 4px;
 	font-size: 0.9rem;
+}
 
-	&:hover {
-		cursor: pointer;
-	}
+.no-touch .btn:hover {
+	cursor: pointer;
 }
 
 .btn--small {
@@ -29,15 +29,15 @@
 	border: 1px solid #3E5F9B;
 	border-radius: 5px;
 
-	&:hover {
-		background: #01023C;
-		color: white;
-	}
-
 	&:active {
 		background: #2A4068;
 		color: white;
 	}	
+}
+
+.no-touch .btn--blue:hover {
+	background: #01023C;
+	color: white;
 }
 
 .btn--purple {
@@ -46,23 +46,23 @@
 	border: 1px solid transparent;
 	border-radius: 5px;
 
-	&:hover {
-		background: #8668a8;
-		color: white;
-	}
-
 	&:active {
 		background: #77579d;
 	}
+}
+
+.no-touch .btn--purple:hover {
+	background: #8668a8;
+	color: white;
 }
 
 .btn--invisible {
 	background: transparent;	
 	border-color: transparent;
 	color: white;
+}
 
-	&:hover {
-		background: rgba(255, 255, 255, 0.1);
-		color: white;
-	}
+.no-touch .btn--invisible:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: white;	
 }

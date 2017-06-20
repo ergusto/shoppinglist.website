@@ -14,6 +14,9 @@ import 'font-awesome/scss/font-awesome.scss';
 viewportUnitsBuggyfill.init();
 
 document.body.classList.add('bg-gradient');
+if (!('ontouchstart' in document.documentElement)) {
+	document.documentElement.classList.add('no-touch');
+}
 
 const history = createHistory();
 const routeMiddleware = routerMiddleware(history);
