@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { changePassword } from '../actions/changePassword.js';
+import { resetSettingsState } from '../actions/settings.js';
 import Component from '../components/changePassword.jsx';
 
 const mapStateToProps = state => {
@@ -12,7 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators({
-		changePassword
+		changePassword,
+		resetState: resetSettingsState
 	}, dispatch)
 });
 

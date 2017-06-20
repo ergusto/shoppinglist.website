@@ -21,6 +21,10 @@ export default class Component extends React.Component {
 		};
 	}
 
+	componentWillUnmount() {
+		this.props.actions.resetState();
+	}
+
 	submit = ({ current_password, new_password }) => {
 		this.props.actions.changePassword(current_password, new_password, this.onSuccess);	
 	};

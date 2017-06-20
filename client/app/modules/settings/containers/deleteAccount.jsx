@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { deleteAccount } from '../actions/deleteAccount.js';
+import { resetSettingsState } from '../actions/settings.js';
 import Component from '../components/deleteAccount.jsx';
 
 const mapStateToProps = state => {
@@ -12,7 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators({
-		deleteAccount
+		deleteAccount,
+		resetState: resetSettingsState
 	}, dispatch)
 });
 
