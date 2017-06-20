@@ -63,18 +63,26 @@ export default class Component extends React.Component {
 	};
 
 	renderMarkComplete() {
+		let confirmContent;
+		let content;
 		const { showCompleteConfirm } = this.state;
 
 		if (showCompleteConfirm) {
-			return (
-				<div>
+			confirmContent = (
+				<div className='item-mark-complete-confirm'>
 					<a onClick={this.toggleCompleteConfirm} href='#' className='item-cancel-mark-complete pull-right btn btn--small btn--invisible'>cancel</a>
 					<a onClick={this.markComplete} href='#' className='item-confirm-mark-complete pull-right btn btn--small btn--invisible margin-right-sm'>confirm</a>
 				</div>
 			);
 		} else {
-			return <a onClick={this.toggleCompleteConfirm} href='#' className='item-mark-complete pull-right btn btn--small btn--invisible'>complete</a>;
+			content = <a onClick={this.toggleCompleteConfirm} href='#' className='item-mark-complete pull-right btn btn--small btn--invisible'>complete</a>;
 		}
+		return (
+			<VelocityTransitionGroup component='div' enter={{ animation: 'fadeIn', duration: 200 }} leave={{ animation: 'fadeOut', duration: 200 }}>
+				{confirmContent}
+				{content}
+			</VelocityTransitionGroup>
+		);
 	}
 
 	renderItemContent() {
