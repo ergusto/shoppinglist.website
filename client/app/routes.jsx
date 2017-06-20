@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
 
 import { PublicRoute, ProtectedRoute, AuthBasedSwitch } from './route-helpers.jsx';
-import history from './lib/history.js';
 
 import Header from './components/header/component.jsx';
 import NotFound from './components/errors/not-found.jsx';
@@ -17,9 +17,10 @@ import { SettingsRoute } from './modules/settings';
 export default class Routes extends Component {
 
 	render() {
+		const { history } = this.props;
 
 		return (
-			<Router history={history}>
+			<ConnectedRouter history={history}>
 				<div>
 					<Header />
 					<Switch>
@@ -33,7 +34,7 @@ export default class Routes extends Component {
 						<Route path='*' component={NotFound} />
 					</Switch>
 				</div>
-			</Router>
+			</ConnectedRouter>
 		);
 	}
 

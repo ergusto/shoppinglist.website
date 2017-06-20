@@ -1,5 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import createHistory from 'history/createBrowserHistory';
+import { routerMiddleware } from 'react-router-redux';
 
 import viewportUnitsBuggyfill from 'viewport-units-buggyfill';
 
@@ -13,11 +15,13 @@ viewportUnitsBuggyfill.init();
 
 document.body.classList.add('bg-gradient');
 
-const store = configureStore();
+const history = createHistory();
+const routeMiddleware = routerMiddleware(history);
+const store = configureStore(routeMiddleware);
 
 const app = () => (
 	<Provider store={store}>
-		<Routes />
+		<Routes history={history} />
 	</Provider>
 );
 

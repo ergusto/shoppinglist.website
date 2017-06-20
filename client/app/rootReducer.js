@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 import { LOGOUT_SUCCESS } from './modules/auth';
 
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
 	items,
 	login,
 	registration,
+	router: routerReducer,
 	settings
 });
 
