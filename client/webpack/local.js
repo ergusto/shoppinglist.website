@@ -18,6 +18,7 @@ config.devtool = 'inline-source-map';
 
 config.module.rules = config.module.rules.concat([{
 	test: /\.jsx?$/,
+	include: path.join(__dirname, '../app'),
 	use: [{
 		loader: 'react-hot-loader/webpack',
 	}, {
