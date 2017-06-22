@@ -7,21 +7,17 @@ import DeleteAccountRoute from '../routes/deleteAccount.jsx';
 
 import './settings.scss';
 
-export default class Component extends React.Component {
+const Settings = () => (
+	<div className='settings'>
+		<header className='settings-header'>
+			<h3>settings</h3>
+		</header>
+		<div className='settings-body'>
+			<Route exact path='/settings' component={SettingsMenu} />	
+			<Route exact path='/settings/change-password' component={ChangePasswordRoute} />
+			<Route exact path='/settings/delete-account' component={DeleteAccountRoute} />
+		</div>
+	</div>
+);
 
-	render() {
-		return (
-			<div className='settings'>
-				<header className='settings-header'>
-					<h3>settings</h3>
-				</header>
-				<div className='settings-body'>
-					<Route exact path='/settings' component={SettingsMenu} />	
-					<Route exact path='/settings/change-password' component={ChangePasswordRoute} />
-					<Route exact path='/settings/delete-account' component={DeleteAccountRoute} />
-				</div>
-			</div>
-		);
-	}
-
-}
+export default Settings;

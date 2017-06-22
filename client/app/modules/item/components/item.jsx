@@ -97,8 +97,8 @@ export default class Component extends React.Component {
 				<div className='item-body clearfix'>
 					<menu className='item-body-menu clearfix'>
 						{this.renderMarkComplete()}
-						{item.url ? <a href={item.url} className='item-url pull-right btn btn--small btn--invisible'>visit</a> : null}
 						<a onClick={this.toggleForm} href='#' className='item-edit pull-left btn btn--small btn--invisible'>{showForm ? 'cancel' : 'edit'}</a>
+						{item.url ? <a href={item.url} className='item-url pull-left btn btn--small btn--invisible'>visit</a> : null}
 					</menu>
 					<VelocityTransitionGroup component='div' enter={{ animation: 'slideDown', duration: 400 }} leave={{ animation: 'slideUp', duration: 400 }}>
 						{this.renderItemForm()}

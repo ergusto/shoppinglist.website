@@ -35,13 +35,12 @@ export function itemsFetchDataSuccess(items, next, count) {
 	};
 }
 
-export function requestItems() {
+export function requestItems(limit, offset) {
 	return (dispatch, getState) => {
 		dispatch(itemsIsLoading(true));
-		const state = getState().items;
 		const url = setParams('/api/items/', {
-			limit: state.limit,
-			offset: state.offset,
+			limit,
+			offset
 		});
 
 		api.auth.get(url, (err, res) => {

@@ -9,7 +9,7 @@ export default class Component extends React.Component {
 		const { items } = this.props;
 		return (
 			<main className='item-list-component'>
-				<ul className='item-list'>
+				<ul className='item-list margin-bottom'>
 					<VelocityTransitionGroup runOnMount={false} component='div' enter={{ animation: 'slideDown', easing: 'easeInOutQuad', duration: 400 }} leave={{ animation: 'slideUp', easing: 'easeInOutQuad', duration: 400 }}>
 						{items.map(item => {
 							return <Item item={item} key={item.id} />;

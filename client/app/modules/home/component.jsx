@@ -9,12 +9,13 @@ import './style.scss';
 export default class Component extends React.Component {
 
 	componentDidMount() {
-		const { items } = this.props;
-		if (!items.length) this.request();
+		const { items, limit, offset } = this.props;
+		if (!items.length) this.request(limit, offset);
 	}
 
 	request = () => {
-		this.props.actions.requestItems();
+		const { limit, offset } = this.props;
+		this.props.actions.requestItems(limit, offset);
 	}
 
 	render() {
