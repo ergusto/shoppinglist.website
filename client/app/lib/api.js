@@ -1,6 +1,6 @@
 import request from 'superagent';
 import history from './history.js';
-import { isAuthenticated, getToken, logout } from './auth.js';
+import { isAuthenticated, getToken } from '../modules/auth';
 import { setParams, isFunction, trim } from './tools.js';
 import { getCookie } from './csrf.js';
 
@@ -82,6 +82,4 @@ export const unauth = {
 	},
 };
 
-const api = { auth, unauth };
-
-export default api;
+export const api = { auth, unauth };

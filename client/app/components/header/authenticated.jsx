@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { GridContainer, Row, Column } from 'grid-react';
-import { getUser } from '../../lib/auth.js';
 
 export default class Component extends React.Component {
 
 	render() {
-		const user = getUser(); 
 		return (
 			<GridContainer>
 				<Row>

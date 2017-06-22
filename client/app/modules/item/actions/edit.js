@@ -1,4 +1,5 @@
-import api from '../../../lib/api.js';
+import api from '../../../lib';
+import { unauthorised } from '../../auth';
 import {
 	ITEM_EDIT_REQUEST,
 	ITEM_EDIT_FAILURE,
@@ -49,7 +50,11 @@ export function editItem(id, attrs, callback) {
 				dispatch(editSuccess(item));
 				if (callback) callback(item);
 			} else {
-				dispatch(editFailure(id, true));
+				if (res.unauthorized) {
+					dispatch(unauthorised());
+				} else {
+					dispatch(editFailure(id, true));
+				}
 			}
 		});
 	};

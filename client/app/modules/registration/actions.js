@@ -1,4 +1,5 @@
-import { register } from '../../lib/auth.js';
+import { register } from '../auth';
+import { parseServerErrors } from '../../lib';
 
 import {
 	REGISTRATION_REQUEST,
@@ -48,23 +49,7 @@ export function registerUser(email, password) {
 				dispatch(registrationSuccess(user, token));
 				dispatch(authenticationSuccess(user, token));
 			} else {
-				let error = true;
-				const errors = {};
-
-				const server_errors = res.body;
-				const { non_field_errors } = server_errors;
-				delete server_errors['non_field_errors'];
-
-				if (non_field_errors) {
-					error = non_field_errors[0];
-				}
-
-				if (Object.keys(server_errors).length) {
-					for (var prop in server_errors) {
-						errors[prop] = server_errors[prop][0];
-					}
-				}
-
+				const { error, errors } = parseServerErrors(res.body);
 				dispatch(registrationFailure(error, errors));
 			}
 		});

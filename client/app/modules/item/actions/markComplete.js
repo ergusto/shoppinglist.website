@@ -1,4 +1,5 @@
-import api from '../../../lib/api.js';
+import api from '../../../lib';
+import { unauthorised } from '../../auth';
 import {
 	ITEM_MARK_COMPLETE_REQUEST,
 	ITEM_MARK_COMPLETE_FAILURE,
@@ -45,7 +46,11 @@ export function markItemComplete(id) {
 				const item = res.body;
 				dispatch(markCompleteSuccess(item));
 			} else {
-				dispatch(markCompleteFailure(id, true));
+				if (res.unauthorized) {
+					dispatch(unauthorised());
+				} else {
+					dispatch(markCompleteFailure(id, true));
+				}	
 			}
 		});
 	};

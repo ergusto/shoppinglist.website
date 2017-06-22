@@ -1,12 +1,11 @@
-import { getToken, login, register, logout } from '../../lib/auth.js';
+import { authenticationSuccess, getToken, login, register, logout } from '../auth';
+import { parseServerErrors } from '../../lib';
 
 import {
 	LOGIN_REQUEST,
 	LOGIN_FAILURE,
 	LOGIN_SUCCESS
 } from './actionTypes.js';
-
-import { authenticationSuccess } from '../auth';
 
 export function loginIsLoading(bool) {
 	return {
@@ -49,23 +48,7 @@ export function loginUser(email, password) {
 				dispatch(loginSuccess(user, token));
 				dispatch(authenticationSuccess(user, token));
 			} else {
-				let error = true;
-				const errors = {};
-
-				const server_errors = res.body;
-				const { non_field_errors } = server_errors;
-				delete server_errors['non_field_errors'];
-
-				if (non_field_errors) {
-					error = non_field_errors[0];
-				}
-
-				if (Object.keys(server_errors).length) {
-					for (var prop in server_errors) {
-						errors[prop] = server_errors[prop][0];
-					}
-				}
-
+				const { error, errors } = parseServerErrors(res.body);
 				dispatch(loginFailure(error, errors));
 			}
 		});

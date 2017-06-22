@@ -1,5 +1,5 @@
-import { deleteAccount as deleteUserAccount } from '../../../lib/auth.js';
-
+import { unauthorised, deleteAccount as deleteUserAccount } from '../../auth';
+import { parseServerErrors } from '../../../lib';
 import {
 	DELETE_ACCOUNT_REQUEST,
 	DELETE_ACCOUNT_FAILURE,
@@ -43,24 +43,12 @@ export function deleteAccount(current_password, callback) {
 				dispatch(deleteAccountSuccess());
 				if (callback) callback();
 			} else {
-				let error = true;
-				const errors = {};
-
-				const server_errors = res.body;
-				const { non_field_errors } = server_errors;
-				delete server_errors['non_field_errors'];
-
-				if (non_field_errors) {
-					error = non_field_errors[0];
+				if (res.unauthorized) {
+					dispatch(unauthorised());
+				} else {
+					const { error, errors } = parseServerErrors(res.body);
+					dispatch(deleteAccountFailure(error, errors));
 				}
-
-				if (Object.keys(server_errors).length) {
-					for (var prop in server_errors) {
-						errors[prop] = server_errors[prop][0];
-					}
-				}
-
-				dispatch(deleteAccountFailure(error, errors));
 			}
 		});
 	};

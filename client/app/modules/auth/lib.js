@@ -1,6 +1,6 @@
 import request from 'superagent';
-import api, { getCookie, getBaseHeaders } from './api.js';
-import Storage from '../lib/storage.js';
+import { api, getCookie, getBaseHeaders } from '../../lib';
+import Storage from '../../lib/storage.js';
 
 const storage = new Storage('auth');
 export const getToken = () => storage.get('token');
@@ -21,7 +21,6 @@ export const getId = () => storage.get('id');
 export const getEmail = () => storage.get('email');
 export const removeUser = () => storage.remove('token id email');
 export const isAuthenticated = () => !!getId();
-
 
 export function logout(cb) {
 	removeUser();

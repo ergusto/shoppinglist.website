@@ -221,3 +221,23 @@ export function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
+
+export function parseServerErrors(server_errors) {
+	let error = true;
+	const errors = {};
+
+	const non_field_errors = server_errors['non_field_errors'];
+
+	if (non_field_errors) {
+		delete server_errors['non_field_errors'];
+		error = non_field_errors[0];
+	}
+
+	if (Object.keys(server_errors).length) {
+		for (var prop in server_errors) {
+			errors[prop] = server_errors[prop][0];
+		}
+	}
+
+	return { error, errors };
+}

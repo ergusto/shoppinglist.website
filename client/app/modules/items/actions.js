@@ -1,10 +1,11 @@
-import api from '../../lib/api.js';
-import { setParams } from '../../lib/tools.js';
+import { api, setParams } from '../../lib';
 import {
 	ITEMS_REQUEST,
 	ITEMS_FAILURE,
 	ITEMS_SUCCESS
 } from './actionTypes.js';
+
+import { unauthorised } from '../auth';
 
 export function itemsHasErrored(error) {
 	return {
@@ -50,7 +51,11 @@ export function requestItems(limit, offset) {
 				const { results, next, count } = res.body;
 				dispatch(itemsFetchDataSuccess(results, !!next, count));
 			} else {
-				dispatch(itemsHasErrored(true));
+				if (res.unauthorized) {
+					dispatch(unauthorised());
+				} else {
+					dispatch(itemsHasErrored(true));
+				}
 			}
 		});
 	};

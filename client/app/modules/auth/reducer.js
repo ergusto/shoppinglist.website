@@ -1,9 +1,10 @@
 import createReducer from '../../createReducer.js';
-import { isAuthenticated, getToken, getUser } from '../../lib/auth.js';
+import { isAuthenticated, getToken, getUser } from './lib.js';
 
 import {
+	AUTHENTICATION_SUCCESS,
 	LOGOUT_SUCCESS,
-	AUTHENTICATION_SUCCESS
+	UNAUTHORISED_REQUEST
 } from './actionTypes.js';
 
 import {
@@ -37,5 +38,12 @@ export default createReducer(initialState, {
 			token: null,
 			user: null
 		});
-	}
+	},
+	[UNAUTHORISED_REQUEST]: (state, payload) => {
+		return Object.assign({}, state, {
+			authenticated: false,
+			token: null,
+			user: null
+		});
+	},
 });

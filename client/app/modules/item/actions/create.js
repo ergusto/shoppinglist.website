@@ -1,4 +1,5 @@
-import api from '../../../lib/api.js';
+import api from '../../../lib';
+import { unauthorised } from '../../auth';
 import {
 	ITEM_CREATE_REQUEST,
 	ITEM_CREATE_SUCCESS,
@@ -43,7 +44,11 @@ export function addItem(item) {
 				const item = res.body;
 				dispatch(createSuccess(item));
 			} else {
-				dispatch(createHasErrored(true));
+				if (res.unauthorized) {
+					dispatch(unauthorised());
+				} else {
+					dispatch(createHasErrored(true));
+				}
 			}
 		});
 	};

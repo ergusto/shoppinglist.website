@@ -1,8 +1,9 @@
-import { logout } from '../../lib/auth.js';
+import { logout } from './lib.js';
 
 import {
+	AUTHENTICATION_SUCCESS,
 	LOGOUT_SUCCESS,
-	AUTHENTICATION_SUCCESS
+	UNAUTHORISED_REQUEST
 } from './actionTypes.js';
 
 export function logoutSuccess() {
@@ -25,5 +26,20 @@ export function authenticationSuccess(user, token) {
 		payload: {
 			user, token
 		}
+	};
+}
+
+export function unauthorisedRequest() {
+	return {
+		type: UNAUTHORISED_REQUEST,
+		payload: {}
+	};
+}
+
+export function unauthorised() {
+	return dispatch => {
+		logout(() => {
+			dispatch(unauthorisedRequest());
+		});
 	};
 }

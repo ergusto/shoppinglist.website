@@ -4,7 +4,7 @@ import { GridContainer, Row, Column } from 'grid-react';
 import { Form, TextInput, PasswordInput, Submit } from 'reactform';
 
 import Loading from '../../../components/loading/component.jsx';
-import { emailValidator } from '../../../lib/validators.js';
+import { emailValidator } from '../../../lib';
 
 import Registration from '../containers/registration.jsx';
 
