@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import { LOGOUT_SUCCESS } from './modules/auth';
+import { LOGOUT_SUCCESS, DELETE_ACCOUNT_SUCCESS } from './modules/auth';
 
 import auth from './modules/auth';
 import create from './modules/item';
@@ -21,7 +21,7 @@ const appReducer = combineReducers({
 });
 
 const rootReducer = (state, action) => {
-	if (action.type === LOGOUT_SUCCESS) {
+	if (action.type === LOGOUT_SUCCESS || action.type === DELETE_ACCOUNT_SUCCESS) {
 		state = undefined;
 	}
 
