@@ -1,4 +1,4 @@
-import api from '../../../lib';
+import { api } from '../../../lib';
 import { unauthorised } from '../../auth';
 import {
 	ITEM_EDIT_REQUEST,

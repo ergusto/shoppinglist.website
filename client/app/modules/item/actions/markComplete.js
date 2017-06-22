@@ -1,4 +1,4 @@
-import api from '../../../lib';
+import { api } from '../../../lib';
 import { unauthorised } from '../../auth';
 import {
 	ITEM_MARK_COMPLETE_REQUEST,
