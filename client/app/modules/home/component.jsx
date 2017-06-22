@@ -13,7 +13,8 @@ export default class Component extends React.Component {
 		if (!items.length) this.request(limit, offset);
 	}
 
-	request = () => {
+	request = event => {
+		if (event) event.preventDefault();
 		const { limit, offset } = this.props;
 		this.props.actions.requestItems(limit, offset);
 	}
