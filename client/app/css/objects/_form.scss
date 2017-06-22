@@ -22,7 +22,6 @@ fieldset {
 	padding-left: 12px;
 	margin-bottom: 10px;
 }
-
 .form--purple {
 
 	.field-error {
@@ -57,6 +56,10 @@ fieldset {
 		&:focus {
 			background: #203566;
 		}
+	}
+
+	.btn {
+		@extend .btn--invisible;
 	}
 
 }

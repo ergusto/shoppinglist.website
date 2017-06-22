@@ -7,3 +7,17 @@
 		box-shadow: 0 15px 35px 0 rgba(50, 50, 93, .4);
 	}
 }
+
+.purple-box {
+	background: rgba(32, 53, 102, .4);
+	border-radius: 5px;
+}
+
+.purple-box__header {
+	color: #fff;
+	padding: 10px 15px;
+	background: #7d71e6;
+	text-align: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
