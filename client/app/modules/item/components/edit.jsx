@@ -7,7 +7,7 @@ import './edit.scss';
 export default class Component extends React.Component {
 
 	submit = attrs => {
-		const { item } = this.props;
+		const { actions, item } = this.props;
 		const difference = objectNaiveEquivalence(attrs, item);
 		if (difference) {
 			actions.editItem(item.id, attrs, this.editComplete);
