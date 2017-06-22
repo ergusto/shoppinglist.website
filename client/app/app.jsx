@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 
 import Routes from './routes.jsx';
 import configureStore from './configureStore.js';
@@ -15,8 +15,8 @@ if (!('ontouchstart' in document.documentElement)) {
 }
 
 const history = createHistory();
-const routeMiddleware = routerMiddleware(history);
-const store = configureStore(routeMiddleware);
+const routerMiddleware = createRouterMiddleware(history);
+const store = configureStore(routerMiddleware);
 
 const app = () => (
 	<Provider store={store}>

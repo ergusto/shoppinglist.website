@@ -2,7 +2,10 @@ var path = require('path');
 
 module.exports = {
 	context: __dirname,
-	entry: '../app/startup.jsx',
+	entry: [
+		'babel-polyfill',
+		'../app/startup.jsx'
+	],
 	output: {
 		path: path.resolve('./static/build/'),
 		filename: '[name]-[hash].js'

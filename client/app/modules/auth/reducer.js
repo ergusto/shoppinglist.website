@@ -18,25 +18,11 @@ const initialState = {
 };
 
 export default createReducer(initialState, {
-	[LOGOUT_SUCCESS]: (state, payload) => {
-		return Object.assign({}, state, {
-			authenticated: false,
-			token: null,
-			user: null,
-		});
-	},
 	[AUTHENTICATION_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
 			authenticated: true,
 			token: payload.token,
 			user: payload.user,
-		});
-	},
-	[DELETE_ACCOUNT_SUCCESS]: (state, payload) => {
-		return Object.assign({}, state, {
-			authenticated: false,
-			token: null,
-			user: null
 		});
 	},
 	[UNAUTHORISED_REQUEST]: (state, payload) => {

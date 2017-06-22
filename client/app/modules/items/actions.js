@@ -60,3 +60,5 @@ export function requestItems(limit, offset) {
 		});
 	};
 }
+
+export function getItems() {}

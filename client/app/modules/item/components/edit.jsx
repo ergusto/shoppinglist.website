@@ -1,13 +1,19 @@
 import React from 'react';
 import { Form, TextInput, URLInput, Textarea, Submit } from 'reactform';
+import { objectNaiveEquivalence } from '../../../lib';
 
 import './edit.scss';
 
 export default class Component extends React.Component {
 
 	submit = attrs => {
-		const { actions, item } = this.props;
-		actions.editItem(item.id, attrs, this.editComplete);
+		const { item } = this.props;
+		const difference = objectNaiveEquivalence(attrs, item);
+		if (difference) {
+			actions.editItem(item.id, attrs, this.editComplete);
+		} else {
+			this.editComplete();
+		}
 	};
 
 	editComplete = () => {

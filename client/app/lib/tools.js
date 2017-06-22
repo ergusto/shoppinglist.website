@@ -205,6 +205,16 @@ export function objectEquivalence(a, b) {
 	return true;
 }
 
+export function objectNaiveEquivalence(object, objectb) {
+	var result = true;
+	for (var prop in object) {
+		if (object[prop] != objectb[prop]) {
+			result = false;
+		}
+	}
+	return result;
+}
+
 export const classnames = (...args) => args.map(arg => {
 	if (isString(arg) || isNumber(arg)) return arg;
 

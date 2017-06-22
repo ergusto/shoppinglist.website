@@ -9,12 +9,12 @@ import './style.scss';
 export default class Component extends React.Component {
 
 	componentDidMount() {
-		const { items, limit, offset } = this.props;
+		const { items } = this.props;
 		if (!items.length) this.request();
 	}
 
 	request = event => {
-		if (event) event.preventDefault();
+		event && event.preventDefault();
 		const { limit, offset } = this.props;
 		this.props.actions.requestItems(limit, offset);
 	}

@@ -1,6 +1,6 @@
 import request from 'superagent';
 import history from './history.js';
-import { isAuthenticated, getToken } from '../modules/auth';
+import { logout, isAuthenticated, getToken } from '../modules/auth';
 import { setParams, isFunction, trim } from './tools.js';
 import { getCookie } from './csrf.js';
 
