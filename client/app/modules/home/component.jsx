@@ -10,7 +10,7 @@ export default class Component extends React.Component {
 
 	componentDidMount() {
 		const { items, limit, offset } = this.props;
-		if (!items.length) this.request(limit, offset);
+		if (!items.length) this.request();
 	}
 
 	request = event => {

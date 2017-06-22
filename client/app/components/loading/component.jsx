@@ -9,10 +9,10 @@ import SpinningCube from './spinning-cube.jsx';
 const loaders = [CubeGrid, FoldingCube, SpinningCube];
 
 const Loader = () => {
-	const Loader = loaders[Math.floor(Math.random()*loaders.length)];
+	const loader = loaders[Math.floor(Math.random()*loaders.length)];
 	return (
 		<div className='loading-indicator justify-centre'>
-			<Loader />	
+			{loader}
 		</div>
 	);
 }
