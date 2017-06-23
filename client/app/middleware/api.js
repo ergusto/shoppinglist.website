@@ -1,4 +1,3 @@
-import { camelizeKeys } from 'humps';
 import { logout } from '../modules/auth';
 import { parseServerErrors } from '../lib';
 
@@ -51,10 +50,8 @@ const callApi = ({ authenticated, endpoint, method, body, token }) => {
 				const error = { body: json, status: response.status };
 				return Promise.reject(error);
 			}
-
-			const camelizedJson = camelizeKeys(json);
 			
-			return Object.assign({}, camelizedJson);
+			return json;
 		})
 	});
 };
