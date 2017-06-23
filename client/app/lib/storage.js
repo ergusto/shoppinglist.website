@@ -17,7 +17,7 @@ export function resetBrowserLocalStorage() {
 	localStorage.clear();
 }
 
-export default class Storage {
+export class Storage {
 	
 	constructor(storeName) {
 		this.storeName = storeName;

@@ -1,6 +1,6 @@
 export * from './actions.js';
 export * from './actionTypes.js';
-export * from './lib.js';
+export * from './storage.js';
 
 import reducer from './reducer.js';
 

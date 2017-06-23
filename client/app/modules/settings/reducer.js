@@ -1,4 +1,4 @@
-import createReducer from '../../createReducer.js';
+import { createReducer } from '../../lib';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import {

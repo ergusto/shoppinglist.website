@@ -1,4 +1,4 @@
-import createReducer from '../../createReducer.js';
+import { createReducer } from '../../lib';
 import {
 	ITEM_CREATE_REQUEST,
 	ITEM_CREATE_SUCCESS,

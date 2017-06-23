@@ -1,5 +1,5 @@
-import createReducer from '../../createReducer.js';
-import { isAuthenticated, getToken, getUser } from './lib.js';
+import { createReducer } from '../../lib';
+import { isAuthenticated, getToken, getUser } from './storage.js';
 
 import { UNAUTHORISED } from '../../middleware/api.js';
 import { LOGOUT_SUCCESS } from '../auth';

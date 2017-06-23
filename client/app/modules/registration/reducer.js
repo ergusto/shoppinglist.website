@@ -1,4 +1,4 @@
-import createReducer from '../../createReducer.js';
+import { createReducer } from '../../lib';
 import {
 	REGISTRATION_REQUEST,
 	REGISTRATION_FAILURE,
