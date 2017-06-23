@@ -18,6 +18,16 @@ class UserSerializer(ModelSerializer):
             'password': { 'write_only': True },
         }
 
+    def validate_password(self, value):
+        errors = None
+        try:
+            password_validation.validate_password(password=value)
+        except exceptions.ValidationError as error:
+            errors = list(error.messages)
+        if errors:
+            raise serializers.ValidationError(errors[0])
+        return value
+
     def create(self, validated_data):
         user = UserModel.objects.create(
             email=validated_data['email'],

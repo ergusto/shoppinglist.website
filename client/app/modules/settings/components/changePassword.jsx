@@ -2,45 +2,23 @@ import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { Form, PasswordInput, Submit } from 'reactform';
 
-import Loading from '../../../components/loading/component.jsx';
-
 import './changePassword.scss';
 
-const passwordJointValidator = (value, values) => {
-	const password1 = values['new_password'];
-	const password2 = values['new_password_repeat'];
-	return password1 == password2 ? null : 'Passwords must match';
-};
+const passwordJointValidator = (value, { new_password, new_password_repeat }) => new_password == new_password_repeat ? null : 'Passwords must match';
 
 export default class Component extends React.Component {
 
-	constructor(props, context) {
-		super(props, context);
-		this.state = {
-			success: false,
-		};
-	}
-
 	submit = ({ current_password, new_password }) => {
-		this.props.actions.changePassword(current_password, new_password, this.onSuccess);	
-	};
-
-	onSuccess = () => {
-		this.setState({ success: true });
+		this.props.actions.changePassword(current_password, new_password);	
 	};
 
 	render() {
 		let loader;
-		const { success } = this.state;
-		const { authenticated, loading, error, errors  } = this.props;
+		const { authenticated, success, loading, error, errors  } = this.props;
 		const { current_password, new_password } = errors;
 
 		if (success) {
 			return <Redirect to='/settings' />;
-		}
-
-		if (loading) {
-			loader = <Loading />;
 		}
 
 		return (

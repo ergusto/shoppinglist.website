@@ -1,15 +1,10 @@
 import createReducer from '../../createReducer.js';
 import { isAuthenticated, getToken, getUser } from './lib.js';
 
-import {
-	AUTHENTICATION_SUCCESS,
-	LOGOUT_SUCCESS,
-	UNAUTHORISED_REQUEST
-} from './actionTypes.js';
-
-import {
-	DELETE_ACCOUNT_SUCCESS
-} from '../settings';
+import { UNAUTHORISED } from '../../middleware/api.js';
+import { LOGOUT_SUCCESS } from '../auth';
+import { LOGIN_SUCCESS } from '../login';
+import { REGISTRATION_SUCCESS } from '../registration';
 
 const initialState = {
 	authenticated: isAuthenticated() ? true : false,
@@ -17,19 +12,25 @@ const initialState = {
 	user: isAuthenticated() ? getUser() : null
 };
 
+const authenticate = (state, payload) => {
+	return Object.assign({}, state, {
+		authenticated: true,
+		token: payload.token,
+		user: payload.user
+	});
+};
+
+const unauthenticate = (state, payload) => {
+	return Object.assign({}, state, {
+		authenticated: false,
+		token: null,
+		user: null
+	});
+};
+
 export default createReducer(initialState, {
-	[AUTHENTICATION_SUCCESS]: (state, payload) => {
-		return Object.assign({}, state, {
-			authenticated: true,
-			token: payload.token,
-			user: payload.user,
-		});
-	},
-	[UNAUTHORISED_REQUEST]: (state, payload) => {
-		return Object.assign({}, state, {
-			authenticated: false,
-			token: null,
-			user: null
-		});
-	},
+	[LOGIN_SUCCESS]: authenticate,
+	[REGISTRATION_SUCCESS]: authenticate,
+	[UNAUTHORISED]: unauthenticate,
+	[LOGOUT_SUCCESS]: unauthenticate
 });

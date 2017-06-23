@@ -16,7 +16,7 @@ import { SettingsRoute } from './modules/settings';
 
 const Routes = ({ history }) => (
 	<ConnectedRouter history={history}>
-		<div>
+		<div className='app'>
 			<Header />
 			<Switch>
 				<AuthBasedSwitch path='/' exact authComponent={HomeRoute} unauthComponent={LandingRoute} />

@@ -14,6 +14,7 @@ const initialState = {
 	loading: false,
 	error: null,
 	errors: {},
+	success: false,
 	statusText: null
 };
 
@@ -22,6 +23,7 @@ const request = (state, payload) => {
 		loading: true,
 		error: null,
 		errors: {},
+		success: false,
 		statusText: null
 	});
 };
@@ -31,28 +33,31 @@ const failure = (state, payload) => {
 		loading: false,
 		error: payload.error,
 		errors: payload.errors,
-		statusText: 'Changing password failed.'
+		success: false,
+		statusText: 'Request failed.'
 	});
 };
 
 export default createReducer(initialState, {
 	[CHANGE_PASSWORD_REQUEST]: request,
+	[DELETE_ACCOUNT_REQUEST]: request,
 	[CHANGE_PASSWORD_FAILURE]: failure,
+	[DELETE_ACCOUNT_FAILURE]: failure,
 	[CHANGE_PASSWORD_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
 			loading: false,
 			error: null,
 			errors: {},
+			success: true,
 			statusText: 'Password successfully changed.'
 		});
 	},
-	[DELETE_ACCOUNT_REQUEST]: request,
-	[DELETE_ACCOUNT_FAILURE]: failure,
 	[DELETE_ACCOUNT_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
 			loading: false,
 			error: null,
 			errors: {},
+			success: true,
 			statusText: 'Accont successfully deleted.'
 		});
 	},

@@ -14,8 +14,12 @@ export default class Component extends React.Component {
 
 	render() {
 		let loader;
-		const { authenticated, loading, error, errors  } = this.props;
+		const { authenticated, success, loading, error, errors  } = this.props;
 		const { current_password } = errors;
+
+		if (success) {
+			return <Redirect to='/logout' />;
+		}
 
 		if (loading) {
 			loader = <Loading />;

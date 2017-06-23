@@ -6,7 +6,7 @@ from .serializers import ItemSerializer
 
 class ItemViewSet(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
-    permission_classes = (IsOwner,)
+    permission_classes = (IsAuthenticated, IsOwner)
     page_size = 10
 
     def get_queryset(self):

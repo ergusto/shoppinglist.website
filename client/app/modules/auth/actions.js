@@ -1,5 +1,3 @@
-import { logout } from './lib.js';
-
 import {
 	AUTHENTICATION_SUCCESS,
 	LOGOUT_SUCCESS,
@@ -13,11 +11,7 @@ export function logoutSuccess() {
 }
 
 export function logoutUser() {
-	return dispatch => {
-		logout(() => {
-			dispatch(logoutSuccess());
-		});
-	}
+	return dispatch => dispatch(logoutSuccess());
 }
 
 export function authenticationSuccess(user, token) {
@@ -26,20 +20,5 @@ export function authenticationSuccess(user, token) {
 		payload: {
 			user, token
 		}
-	};
-}
-
-export function unauthorisedRequest() {
-	return {
-		type: UNAUTHORISED_REQUEST,
-		payload: {}
-	};
-}
-
-export function unauthorised() {
-	return dispatch => {
-		logout(() => {
-			dispatch(unauthorisedRequest());
-		});
 	};
 }

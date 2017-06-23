@@ -8,11 +8,13 @@ import {
 import {
 	ITEM_CREATE_SUCCESS,
 	ITEM_MARK_COMPLETE_SUCCESS,
+	ITEM_EDIT,
 	ITEM_EDIT_SUCCESS
 } from '../item';
 
 const initialState = {
 	items: [],
+	editingItems: [],
 
 	loading: false,
 	error: null,
@@ -33,7 +35,7 @@ export default createReducer(initialState, {
 	},
 	[ITEMS_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
-			items: [].concat(state.items, payload.items),
+			items: [].concat(state.items, payload.results),
 			loading: false,
 			error: null,
 			next: payload.next,
@@ -52,18 +54,23 @@ export default createReducer(initialState, {
 	},
 	[ITEM_CREATE_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
-			items: [].concat([payload.item], state.items),
+			items: [].concat([payload], state.items),
 		});
 	},
 	[ITEM_MARK_COMPLETE_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
-			items: state.items.filter(item => item.id != payload.item.id),
+			items: state.items.filter(item => item.id != payload.id),
 			offset: state.offset === 0 ? state.offset : state.offset - 1
+		});
+	},
+	[ITEM_EDIT]: (state, payload) => {
+		return Object.assign({}, state, {
+			editingItems: [].concat([payload.id], state.editingItems)
 		});
 	},
 	[ITEM_EDIT_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
-			items: state.items.map(item => item.id == payload.item.id ? payload.item : item)
+			items: state.items.map(item => item.id == payload.id ? payload : item)
 		});
 	},
 });

@@ -21,7 +21,7 @@ const appReducer = combineReducers({
 });
 
 const rootReducer = (state, action) => {
-	if (action.type === LOGOUT_SUCCESS || action.type === DELETE_ACCOUNT_SUCCESS) {
+	if (action.type === LOGOUT_SUCCESS) {
 		state = undefined;
 	}
 
