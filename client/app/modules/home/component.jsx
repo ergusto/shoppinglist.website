@@ -37,12 +37,6 @@ export default class Component extends React.Component {
 					<Row>
 						<Column tabletLarge={8} tabletLargeOffset={2}>
 							<ItemCreate />
-						</Column>
-					</Row>
-				</GridContainer>
-				<GridContainer>
-					<Row>
-						<Column tabletLarge={8} tabletLargeOffset={2}>
 							{items.length > 0 ? <ItemList items={items} /> : null}
 							{nextHtml}
 						</Column>

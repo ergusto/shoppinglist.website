@@ -7,7 +7,7 @@ export default store => next => action => {
 	const { type, payload } = action;
 
 	if (type === LOGIN_SUCCESS || type === REGISTRATION_SUCCESS) {
-		const { user, token } = payload;
+		const { user, token } = payload.response;
 		setUser(user);
 		setToken(token);
 	}

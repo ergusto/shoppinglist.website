@@ -28,7 +28,7 @@ export default class Component extends React.Component {
 		return (
 			<Form noValidate onSubmit={this.submit} className='settings-form change-password-form form--purple'>
 				<PasswordInput required name='current_password' error={current_password} placeholder='confirm password' />
-				<Submit className='btn btn--invisible' value='delete account' />
+				<Submit className='settings-form__delete-account btn btn--invisible' value='delete account' />
 				<Link to='/settings' className='settings-form__cancel btn btn--invisible'>cancel</Link>
 			</Form>
 		);

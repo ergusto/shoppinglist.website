@@ -98,7 +98,6 @@ export default store => next => action => {
 		finalAction.type = type;
 		return finalAction;
 	};
-		
 
 	const options = { endpoint, method, body };
 	const { auth } = store.getState();
@@ -123,9 +122,9 @@ export default store => next => action => {
 			return next(nextAction(failureType, { error, errors }));
 		}
 
-		return next(failureType, {
+		return next(nextAction(failureType, {
 			message: err.message || 'Something bad happened.',
 			error: err
-		});
+		}));
 	});
 };
