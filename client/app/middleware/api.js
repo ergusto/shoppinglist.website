@@ -106,7 +106,8 @@ export default store => next => action => {
 		});
 	}).catch(err => {
 		if (err.status === HTTP_UNAUTHORISED) {
-			return store.dispatch({
+			// Will be handled by auth middleware
+			return next({
 				type: UNAUTHORISED,
 				payload: {}
 			});
