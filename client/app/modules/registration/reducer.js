@@ -29,11 +29,11 @@ export default createReducer(initialState, {
 			statusText: 'You have been successfully logged in.'
 		});
 	},
-	[REGISTRATION_FAILURE]: (state, payload) => {
+	[REGISTRATION_FAILURE]: (state, { response }) => {
 		return Object.assign({}, state, {
 			loading: false,
-			error: payload.error,
-			errors: payload.errors,
+			error: response.error,
+			errors: response.errors,
 			statusText: 'Authentication Error.'
 		});
 	},

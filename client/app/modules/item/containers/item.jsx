@@ -8,7 +8,7 @@ import Component from '../components/item.jsx';
 
 const mapStateToProps = (state, props) => {
 	return {
-		shouldShowForm: !!state.items.editingItems.filter(id => id == props.item.id).length,	
+		shouldShowForm: !!state.items.editingItems.filter(item => item.id === props.item.id).length,	
 	};
 };
 

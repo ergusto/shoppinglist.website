@@ -28,11 +28,11 @@ const request = (state, payload) => {
 	});
 };
 
-const failure = (state, payload) => {
+const failure = (state, { response }) => {
 	return Object.assign({}, state, {
 		loading: false,
-		error: payload.error,
-		errors: payload.errors,
+		error: response.error,
+		errors: response.errors,
 		success: false,
 		statusText: 'Request failed.'
 	});

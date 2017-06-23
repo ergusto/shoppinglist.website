@@ -26,9 +26,9 @@ export default createReducer(initialState, {
 			statusText: 'Item created succcessfully.'
 		});
 	},
-	[ITEM_CREATE_FAILURE]: (state, payload) => {
+	[ITEM_CREATE_FAILURE]: (state, { response }) => {
 		return Object.assign({}, state, {
-			createError: payload.error,
+			createError: response.error,
 			createLoading: false,
 			statusText: 'Unable to create item.'
 		});

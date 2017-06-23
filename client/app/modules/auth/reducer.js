@@ -12,11 +12,11 @@ const initialState = {
 	user: isAuthenticated() ? getUser() : null
 };
 
-const authenticate = (state, payload) => {
+const authenticate = (state, { response }) => {
 	return Object.assign({}, state, {
 		authenticated: true,
-		token: payload.token,
-		user: payload.user
+		token: response.token,
+		user: response.user
 	});
 };
 

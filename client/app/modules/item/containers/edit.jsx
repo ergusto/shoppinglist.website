@@ -6,8 +6,9 @@ import { connect } from 'react-redux';
 import { editItem, hideItemEditForm } from '../actions';
 import Component from '../components/edit.jsx';
 
-const mapStateToProps = state => {
-	return {};
+const mapStateToProps = (state, props) => {
+	const editingItem = state.items.editingItems.find(item => item.id === props.item.id);
+	return editingItem ? { errors: editingItem.errors } : { errors: {} };
 };
 
 const mapDispatchToProps = dispatch => ({

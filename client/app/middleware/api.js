@@ -90,8 +90,19 @@ export default store => next => action => {
 		throw new Error('Method must be a valid method');
 	}
 
+	const nextAction = (type, payload) => {
+		const finalPayload = Object.assign({}, action.payload, payload);
+		const finalAction = Object.assign({}, action);
+		delete finalAction[CALL_API];
+		finalAction.payload = finalPayload;
+		finalAction.type = type;
+		return finalAction;
+	};
+		
+
 	const options = { endpoint, method, body };
 	const { auth } = store.getState();
+
 	if (auth && auth.authenticated) {
 		options.token = auth.token;
 		options.authenticated = auth.authenticated;
@@ -100,33 +111,21 @@ export default store => next => action => {
 	const [requestType, successType, failureType] = types;
 
 	return callApi(options).then(response => {
-		next({
-			type: successType,
-			payload: response 
-		});
+		next(nextAction(successType, { response }));
 	}).catch(err => {
 		if (err.status === HTTP_UNAUTHORISED) {
 			// Will be handled by auth middleware
-			return next({
-				type: UNAUTHORISED,
-				payload: {}
-			});
+			return next(nextAction(UNAUTHORISED));
 		}
 
 		if (err.status === HTTP_BAD_REQUEST) {
 			const { error, errors } = parseServerErrors(err.body);
-			return next({
-				type: failureType,
-				payload: { error, errors }
-			});
+			return next(nextAction(failureType, { error, errors }));
 		}
 
-		return next({
-			type: failureType,
-			payload: {
-				message: err.message || 'Something bad happened',
-				error: err,
-			}
+		return next(failureType, {
+			message: err.message || 'Something bad happened.',
+			error: err
 		});
 	});
 };
