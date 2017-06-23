@@ -13,7 +13,6 @@ export default class Component extends React.Component {
 
 		this.state = {
 			showBody: false,
-			showForm: false,
 			showCompleteConfirm: false,
 		};
 	}
@@ -21,10 +20,11 @@ export default class Component extends React.Component {
 	toggleBody = event => {
 		if (event) event.preventDefault();
 		const { showBody } = this.state;
+		const { item, actions } = this.props;
 		if (showBody) {
+			actions.hideForm(item.id);
 			this.setState({
 				showBody: false,
-				showForm: false,
 				showCompleteConfirm: false,
 			});
 		} else {
@@ -36,9 +36,12 @@ export default class Component extends React.Component {
 
 	toggleForm = event => {
 		if (event) event.preventDefault();
-		this.setState({
-			showForm: !this.state.showForm,
-		});
+		const { actions, item, shouldShowForm } = this.props;
+		if (shouldShowForm) {
+			actions.hideForm(item.id);
+		} else {
+			actions.showForm(item.id);
+		}
 	};
 
 	markComplete = event => {
@@ -48,10 +51,9 @@ export default class Component extends React.Component {
 	};
 
 	renderItemForm() {
-		const { showForm } = this.state;
-		const { item } = this.props;
-		if (showForm) {
-			return <ItemEdit item={item} onSuccess={this.toggleForm} />;
+		const { item, shouldShowForm } = this.props;
+		if (shouldShowForm) {
+			return <ItemEdit item={item} />;
 		}
 	}
 
@@ -78,9 +80,8 @@ export default class Component extends React.Component {
 	}
 
 	renderItemContent() {
-		const { showForm } = this.state;
-		const { item } = this.props;
-		if (!showForm && item.description) {
+		const { item, shouldShowForm } = this.props;
+		if (!shouldShowForm && item.description) {
 			return (
 				<div className='item-content'>
 					{item.description}
@@ -90,14 +91,14 @@ export default class Component extends React.Component {
 	}
 
 	renderBody() {
-		const { item } = this.props;
-		const { showBody, showForm } = this.state;
+		const { showBody } = this.state;
+		const { item, shouldShowForm } = this.props;
 		if (showBody) {
 			return (
 				<div className='item-body clearfix'>
 					<menu className='item-body-menu clearfix'>
 						{this.renderMarkComplete()}
-						<a onClick={this.toggleForm} href='#' className='item-edit pull-left btn btn--small btn--invisible'>{showForm ? 'cancel' : 'edit'}</a>
+						<a onClick={this.toggleForm} href='#' className='item-edit pull-left btn btn--small btn--invisible'>{shouldShowForm ? 'cancel' : 'edit'}</a>
 						{item.url ? <a href={item.url} className='item-url pull-left btn btn--small btn--invisible'>visit</a> : null}
 					</menu>
 					<VelocityTransitionGroup component='div' enter={{ animation: 'slideDown', duration: 400 }} leave={{ animation: 'slideUp', duration: 400 }}>

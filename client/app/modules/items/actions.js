@@ -4,6 +4,7 @@ import {
 	ITEMS_FAILURE,
 	ITEMS_SUCCESS
 } from './actionTypes.js';
+
 import { CALL_API, METHOD_GET } from '../../middleware/api.js';
 
 const baseUrl = '/api/items/';

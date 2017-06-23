@@ -6,10 +6,11 @@ export const ITEM_CREATE_FAILURE = 'ITEM_CREATE_FAILURE';
 export const ITEM_CREATE_SUCCESS = 'ITEM_CREATE_SUCCESS';
 
 /* EDIT */
-export const ITEM_EDIT = 'ITEM_EDIT';
+export const ITEM_SHOW_EDIT = 'ITEM_SHOW_EDIT';
 
-export const ITEM_EDIT_CLOSE = 'ITEM_EDIT_CLOSE';
+export const ITEM_HIDE_EDIT = 'ITEM_HIDE_EDIT';
 
+/* Edit request */
 export const ITEM_EDIT_REQUEST = 'ITEM_EDIT_REQUEST';
 
 export const ITEM_EDIT_FAILURE = 'ITEM_EDIT_FAILURE';

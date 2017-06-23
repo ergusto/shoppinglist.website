@@ -5,7 +5,7 @@ export const getBaseHeaders = () => {
 	return {
 		'Content-Type': 'application/json',
 		'Accept': 'application/json',
-		'X-Requested-With': 'XMLHttpRequest',
+		'X-Requested-With': 'XMLHttpRequest'
 	};
 };
 
@@ -52,7 +52,7 @@ const callApi = ({ authenticated, endpoint, method, body, token }) => {
 			}
 			
 			return json;
-		})
+		});
 	});
 };
 
@@ -106,7 +106,7 @@ export default store => next => action => {
 		});
 	}).catch(err => {
 		if (err.status === HTTP_UNAUTHORISED) {
-			return next({
+			return store.dispatch({
 				type: UNAUTHORISED,
 				payload: {}
 			});

@@ -8,17 +8,12 @@ export default class Component extends React.Component {
 
 	submit = attrs => {
 		const { actions, item } = this.props;
-		const difference = objectNaiveEquivalence(attrs, item);
-		if (difference) {
-			actions.editItem(item.id, attrs, this.editComplete);
+		const equivlanet = objectNaiveEquivalence(attrs, item);
+		if (equivlanet) {
+			actions.hideForm(item.id);
 		} else {
-			this.editComplete();
+			actions.editItem(item.id, attrs);
 		}
-	};
-
-	editComplete = () => {
-		const { onSuccess } = this.props;
-		if (onSuccess) onSuccess();
 	};
 
 	setDescriptionHeight() {

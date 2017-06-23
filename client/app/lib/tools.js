@@ -205,11 +205,14 @@ export function objectEquivalence(a, b) {
 	return true;
 }
 
+// Returns true if all properties in object match the same properties in objectb.
+// They don't have to be identical
 export function objectNaiveEquivalence(object, objectb) {
 	var result = true;
 	for (var prop in object) {
 		if (object[prop] != objectb[prop]) {
 			result = false;
+			break;
 		}
 	}
 	return result;
