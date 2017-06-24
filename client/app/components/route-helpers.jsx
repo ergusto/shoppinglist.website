@@ -3,8 +3,6 @@ import { Route, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Header from './components/header/component.jsx';
-
 const mapStateToProps = state => ({ isAuthenticated: state.auth.authenticated });
 
 const ProtectedRouteBase = ({ isAuthenticated, component, ...rest }) => (
