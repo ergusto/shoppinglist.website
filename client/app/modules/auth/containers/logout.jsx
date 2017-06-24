@@ -11,12 +11,8 @@ const mapStateToProps = state => {
 	return state.auth;
 };
 
-const mapDispatchToProps = dispatch => {
-	const actions = bindActionCreators({
-		logoutUser
-	}, dispatch);
-	actions.push = url => dispatch(push(url));
-	return { actions };
-};
+const mapDispatchToProps = dispatch => bindActionCreators({
+	logoutUser
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

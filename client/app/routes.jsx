@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { PublicRoute, ProtectedRoute, AuthBasedSwitch } from './components/route-helpers.jsx';
 
 import Header from './components/header/component.jsx';
-import NotFound from './components/errors/not-found.jsx';
+import NotFoundRoute from './components/errors/not-found-route.jsx';
 
 import { HomeRoute } from './modules/home';
 import { LandingRoute } from './modules/landing';
@@ -26,7 +26,7 @@ const Routes = ({ history }) => (
 				<PublicRoute path='/register' component={RegistrationRoute} />
 				<ProtectedRoute path='/settings' component={SettingsRoute} />
 				
-				<Route path='*' component={NotFound} />
+				<Route path='*' component={NotFoundRoute} />
 			</Switch>
 		</div>
 	</ConnectedRouter>
