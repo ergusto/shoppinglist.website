@@ -18,7 +18,7 @@ export default class LoginRoute extends Component {
 			const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 			wrapper.style.minHeight = (windowHeight - header.clientHeight) + 'px';
 		}
-	}
+	};
 
 	render() {
 

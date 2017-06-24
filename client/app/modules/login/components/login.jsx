@@ -15,7 +15,8 @@ export default class Component extends React.Component {
 
 	render() {
 		let loader;
-		const { authenticated, loading, error } = this.props;
+		const { authenticated, loading, error, errors } = this.props;
+		console.log(this.props);
 
 		if (loading) {
 			loader = <Loading />;
