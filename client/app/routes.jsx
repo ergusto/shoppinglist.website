@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 
-import { PublicRoute, ProtectedRoute, AuthBasedSwitch } from './route-helpers.jsx';
+import { PublicRoute, ProtectedRoute, AuthBasedSwitch } from './components/route-helpers.jsx';
 
 import Header from './components/header/component.jsx';
 import NotFound from './components/errors/not-found.jsx';

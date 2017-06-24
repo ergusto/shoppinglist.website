@@ -21,9 +21,9 @@ export default class Component extends React.Component {
 
 	render() {
 		let nextHtml;
-		const { items, hasErrored, isLoading, next, count } = this.props;
+		const { items, error, isLoading, next, count } = this.props;
 
-		if (hasErrored) {
+		if (error) {
 			return <p>Sorry! There was an error loading the items</p>;
 		}
 
