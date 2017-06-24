@@ -11,8 +11,10 @@ const mapStateToProps = state => {
 	return state.auth;
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-	logoutUser
-}, dispatch);
+const mapDispatchToProps = dispatch => ({
+	actions: bindActionCreators({
+		logoutUser
+	}, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);
