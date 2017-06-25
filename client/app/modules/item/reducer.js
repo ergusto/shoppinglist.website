@@ -1,3 +1,5 @@
+import { LOCATION_CHANGE } from 'react-router-redux';
+
 import { createReducer } from '../../lib';
 import {
 	ITEM_CREATE_REQUEST,
@@ -6,31 +8,41 @@ import {
 } from './actionTypes.js'; 
 
 const initialState = {
-	createLoading: false,
-	createError: null,
+	loading: false,
+	success: false,
+	error: null,
+	errors: {},
 
-	statusText: null,
+	statusText: null
 };
 
 export default createReducer(initialState, {
 	[ITEM_CREATE_REQUEST]: (state, payload) => {
 		return Object.assign({}, state, {
-			createLoading: true,
-			statusText: null,
+			loading: true,
+			success: false,
+			statusText: null
 		});
 	},
 	[ITEM_CREATE_SUCCESS]: (state, payload) => {
 		return Object.assign({}, state, {
-			createLoading: false,
-			createError: null,
+			loading: false,
+			success: true,
+			error: null,
+			errors: {},
 			statusText: 'Item created succcessfully.'
 		});
 	},
-	[ITEM_CREATE_FAILURE]: (state, { response }) => {
+	[ITEM_CREATE_FAILURE]: (state, payload) => {
 		return Object.assign({}, state, {
-			createError: response.error,
-			createLoading: false,
+			error: payload.error,
+			errors: payload.errors,
+			loading: false,
+			success: false,
 			statusText: 'Unable to create item.'
 		});
 	},
+	[LOCATION_CHANGE]: (state, payload) => {
+		return Object.assign({}, initialState);
+	}
 });

@@ -62,6 +62,6 @@ export default createReducer(initialState, {
 		});
 	},
 	[LOCATION_CHANGE]: (state, payload) => {
-		return initialState;
+		return Object.assign({}, initialState);
 	},
 });

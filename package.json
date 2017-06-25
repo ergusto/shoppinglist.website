@@ -35,7 +35,7 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
     "react-timeago": "^3.3.0",
-    "reactform": "^1.0.69",
+    "reactform": "^1.0.75",
     "redux": "^3.7.0",
     "redux-thunk": "^2.2.0",
     "sanitize.css": "^5.0.0",

@@ -7,7 +7,7 @@ import { createItem, addItem } from '../actions/create.js'
 import Component from '../components/create.jsx';
 
 const mapStateToProps = state => {
-	return state;
+	return state.create;
 };
 
 const mapDispatchToProps = dispatch => ({
