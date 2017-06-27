@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { Form, TextInput, PasswordInput, Submit } from 'reactform';
 
 import Loading from '../../../components/loading/component.jsx';
-import { emailValidator } from '../../../lib';
+import { emailValidator, passwordLengthValidator, passwordEqualityValidator } from '../../../lib';
 
 const passwordJointValidator = (value, values) => {
 	const password1 = values['password'];
@@ -34,8 +34,8 @@ export default class Component extends React.Component {
 			<Form formError={error} onSubmit={this.submit} className='auth-form margin-bottom box box--heavy padding-md' noValidate>
 				<h3>Register</h3>
 				<TextInput required name='email' error={email} placeholder='email' validator={emailValidator} />
-				<PasswordInput required name='password' error={password} validator={passwordJointValidator} placeholder='password' />
-				<PasswordInput required name='password_repeat' error={password} validator={passwordJointValidator} placeholder='repeat password' />
+				<PasswordInput required name='password' error={password} validator={[passwordLengthValidator, passwordEqualityValidator]} placeholder='password' />
+				<PasswordInput required name='password_repeat' error={password} validator={[passwordLengthValidator, passwordEqualityValidator]} placeholder='repeat password' />
 				<Submit className='btn btn--blue btn--block' value='Register' />
 				{loader}
 			</Form>

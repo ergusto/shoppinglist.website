@@ -20,8 +20,8 @@ export default class Component extends React.Component {
 	}
 
 	render() {
-		let nextHtml;
-		const { items, error, isLoading, next, count } = this.props;
+		let contentHtml, nextHtml;
+		const { items, error, loading, next, count } = this.props;
 
 		if (error) {
 			return <p>Sorry! There was an error loading the items</p>;
@@ -31,13 +31,25 @@ export default class Component extends React.Component {
 			nextHtml = <a href='#' className='item-list__next' onClick={this.request}>next</a>;
 		}
 
+		if (items.length) {
+			contentHtml = <ItemList items={items} />;
+		} else {
+			if (!loading) {
+				contentHtml = (
+					<div className='empty-items-message'>
+						<p className='white medium'>Items will appear here once you've added some using the form above.</p>
+					</div>
+				);
+			}
+		}
+
 		return (
 			<div>
 				<GridContainer>
 					<Row>
 						<Column tabletLarge={8} tabletLargeOffset={2}>
 							<ItemCreate />
-							{items.length > 0 ? <ItemList items={items} /> : null}
+							{contentHtml}
 							{nextHtml}
 						</Column>
 					</Row>
