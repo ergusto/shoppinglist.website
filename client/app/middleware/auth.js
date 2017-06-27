@@ -15,7 +15,6 @@ export default store => next => action => {
 	if (type === UNAUTHORISED || type === LOGOUT_SUCCESS) {
 		removeUser();
 		store.dispatch(push('/'));
-		// we don't stop the middleware chain here as the root rudcer will catch the error and return undefined to reset entire state tree.
 	}
 
 	return next(action);

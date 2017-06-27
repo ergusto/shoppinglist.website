@@ -15,16 +15,12 @@ export default class Component extends React.Component {
 		this.props.actions.createItem(item);
 	};
 
-	onError = error => {
-		console.log(error);
-	};
-
 	render() {
 		const { success, error, errors } = this.props;
 
 		return (
 			<Form reset={success} onSubmit={this.create} className='add-item'>
-				<Input elementRef={input => this.input = input} onError={this.onError} required name='title' placeholder='add item' fieldsetComponent={false} hideError={true} />
+				<Input elementRef={input => this.input = input} required name='title' placeholder='add item' fieldsetComponent={false} hideError={true} />
 				<div className='add-item-submit-wrap'>
 					<Submit className='btn' />
 				</div>
