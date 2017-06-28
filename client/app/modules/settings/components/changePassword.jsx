@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { Form, PasswordInput, Submit } from 'reactform';
+import FieldErrorComponent from '../../../components/field-error.jsx';
 
 import './changePassword.scss';
 
@@ -22,7 +23,7 @@ export default class Component extends React.Component {
 		}
 
 		return (
-			<Form noValidate onSubmit={this.submit} className='settings-form change-password-form form--purple'>
+			<Form noValidate onSubmit={this.submit} fieldErrorComponent={FieldErrorComponent} className='settings-form change-password-form form--purple'>
 				<PasswordInput required name='current_password' error={current_password} placeholder='current password' />
 				<PasswordInput required name='new_password' error={new_password} validator={passwordJointValidator} placeholder='new password' />
 				<PasswordInput required name='new_password_repeat' error={new_password} validator={passwordJointValidator} placeholder='repeat new password' />

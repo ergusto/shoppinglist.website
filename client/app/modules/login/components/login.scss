@@ -27,6 +27,14 @@
 		}
 	}
 
+	fieldset {
+		padding: 10px 0 23px;
+	}
+
+	.fieldset--has-error {
+		padding-bottom: 23px;
+	}
+
 	.form-error {
 		float: none;
 		margin-bottom: 0px;
@@ -39,9 +47,10 @@
 
 	.field-error {
 		font-size: .75rem;
+		position: absolute;
 	}
 
 	.form-error, .field-error {
-		color: $error-red;
+		color: #be1c1f;
 	}
 }

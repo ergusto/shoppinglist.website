@@ -4,6 +4,7 @@ import { Form, TextInput, PasswordInput, Submit } from 'reactform';
 
 import Loading from '../../../components/loading/component.jsx';
 import { emailValidator } from '../../../lib';
+import FieldErrorComponent from '../../../components/auth-field-error.jsx';
 
 import './login.scss';
 
@@ -26,7 +27,7 @@ export default class Component extends React.Component {
 		}
 
 		return (
-			<Form formError={error} onSubmit={this.submit} className='auth-form margin-bottom box box--heavy padding-md' noValidate>
+			<Form fieldErrorComponent={FieldErrorComponent} formError={error} onSubmit={this.submit} className='auth-form margin-bottom box box--heavy padding-md' noValidate>
 				<h3>Login</h3>
 				<TextInput required name='email' placeholder='email' validator={emailValidator} />
 				<PasswordInput required name='password' placeholder='password' />
