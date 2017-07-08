@@ -43,7 +43,7 @@ export default class Component extends React.Component {
 		}
 
 		return (
-			<div className='mt3 mw-7 centred'>
+			<div className='mt2 ph3 mw-7 centred'>
 				<ItemCreate />
 				{contentHtml}
 				{nextHtml}
