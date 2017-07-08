@@ -8,6 +8,7 @@ config.output.path = path.resolve('./static/dist/');
 
 config.module.rules = config.module.rules.concat([{
 	test: /\.jsx?$/,
+	include: path.join(__dirname, '../app'),
 	use: [{
 		loader: 'babel-loader',
 		options: {

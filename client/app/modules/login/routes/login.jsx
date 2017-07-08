@@ -10,7 +10,7 @@ export default class LoginRoute extends Component {
 	}
 
 	resize = () => {
-		const header = document.querySelector('.site-header');
+		const header = document.querySelector('#site-header');
 		const { wrapper } = this;
 		
 		if (wrapper) {

@@ -21,7 +21,7 @@ export default class Component extends React.Component {
 	}
 
 	resize = () => {
-		const header = document.querySelector('.site-header');
+		const header = document.querySelector('#site-header');
 		const { wrapper } = this;
 
 		if (wrapper) {

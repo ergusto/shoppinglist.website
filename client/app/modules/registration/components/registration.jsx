@@ -32,14 +32,16 @@ export default class Component extends React.Component {
 		}
 
 		return (
-			<Form fieldErrorComponent={FieldErrorComponent} formError={error} onSubmit={this.submit} className='white-form bg-white faint-blue bsh bra pa3 mb3 w-90 mlg-w-70 tmd-w-50 ssm-w-30 sxlg-w-20 mw-6' noValidate>
-				<h3 className='align-center mb2 fs5'>Register</h3>
-				<TextInput className='bs' required name='email' error={email} placeholder='email' validator={emailValidator} />
-				<PasswordInput className='bs' required name='password' error={password} validator={[passwordLengthValidator, passwordEqualityValidator]} placeholder='password' />
-				<PasswordInput className='bs' required name='password_repeat' error={password} validator={[passwordLengthValidator, passwordEqualityValidator]} placeholder='repeat password' />
-				<Submit className='btn btn--blue btn--block mt2' value='register' />
-				{loader}
-			</Form>
+			<div className='w-90 mw-6'>
+				<Form fieldErrorComponent={FieldErrorComponent} formError={error} onSubmit={this.submit} className='white-form bg-white faint-blue bsh bra pa3 mh3 tmd-mh5  mb3' noValidate>
+					<h3 className='align-center mb2 fs5'>Register</h3>
+					<TextInput className='bs' required name='email' error={email} placeholder='email' validator={emailValidator} />
+					<PasswordInput className='bs' required name='password' error={password} validator={[passwordLengthValidator, passwordEqualityValidator]} placeholder='password' />
+					<PasswordInput className='bs' required name='password_repeat' error={password} validator={[passwordLengthValidator, passwordEqualityValidator]} placeholder='repeat password' />
+					<Submit className='btn btn--blue btn--block mt2' value='register' />
+					{loader}
+				</Form>
+			</div>
 		);
 	}
 
