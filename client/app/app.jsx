@@ -5,13 +5,12 @@ import createHistory from 'history/createBrowserHistory';
 import Routes from './routes.jsx';
 import configureStore from './configureStore.js';
 
-import './css/site.scss';
-import 'font-awesome/scss/font-awesome.scss';
+import './style.js';
 
 const history = createHistory();
 const store = configureStore(history);
 
-document.body.classList.add('bg-gradient');
+document.body.classList.add('bg-blue-to-purple', 'open-sans');
 if (!('ontouchstart' in document.documentElement)) {
 	document.documentElement.classList.add('no-touch');
 }

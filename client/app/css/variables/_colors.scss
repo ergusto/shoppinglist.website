@@ -1,34 +1,29 @@
-/* greys */
+$colors: (
+	white: #fff,
+	baby-blue-white: #fcfcfc,
+	darkest-blue: #2E3D59,
+	darker-blue: #2C375D,
+	dark-blue: #3C4381,
+	blue: #4776e6,
+	light-blue: #96ccff,
+	lighter-blue: #EAF5FF,
+	faint-blue: #6F8199,
 
-$nicest-background-grey: rgb(246, 249, 252);
+	darker-purple: #5451b0,
+	dark-purple: #79589F,
+	purple: #8e54e9,
+	light-purple: #7d71e6,
+	lighter-purple: #BEB9EA,
 
-$milk-grey: #FCFCFC;
-$box-grey: #ccc;
-$light-grey: #ddd;
-$muted-grey: #777;
-$midnight-grey: #333;
-$blueish-grey: #f8f8f8;
-$faint-grey: #A6A7A7;
+	midnight-grey: #333,
+	slate-grey: #5B6271,
+	dark-grey: #535166,
+	grey: #96a3b6,
+	light-grey: #ccc,
+	lighter-grey: #CBCBD2,
 
-/* whites */
+	spaceship-white: #fefefe,
+	error-red: #be1c1f,
 
-$white: #fff;
-$spaceship-white: #fefefe;
-$blue-white: #fafafa;
-
-/* beiges */
-$beige: #FCFAF9;
-
-/* blues */
-$blue: #348eda;
-$blue-active: #3e5f9b;
-$purply-blue: #f7f7f9;
-$faint-blue: #6F8199;
-$dark-blue: #2E3D59;
-
-/* purples */
-$purple: #6772e5;
-$dark-purple: #79589F;
-
-/* reds */
-$error-red: #be1c1f;
+	transparent: transparent
+);

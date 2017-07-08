@@ -1,0 +1,61 @@
+@import '../variables/breakpoints';
+
+@mixin mobileSmall {
+	@media (min-width: #{$mobile-small}) {
+		@content;
+	}
+}
+
+@mixin mobileMedium {
+	@media (min-width: #{$mobile-medium}) {
+		@content;
+	}
+}
+
+@mixin mobileLarge {
+	@media (min-width: #{$mobile-large}) {
+		@content;
+	}
+}
+
+@mixin tabletSmall {
+	@media (min-width: #{$tablet-small}) {
+		@content;
+	}
+}
+
+@mixin tabletMedium {
+	@media (min-width: #{$tablet-medium}) {
+		@content;
+	}
+}
+
+@mixin tabletLarge {
+	@media (min-width: #{$tablet-large}) {
+		@content;
+	}
+}
+
+@mixin screenSmall {
+	@media (min-width: #{$screen-small}) {
+		@content;
+	}
+}
+
+@mixin screenMedium {
+	@media (min-width: #{$screen-medium}) {
+		@content;
+	}
+}
+
+@mixin screenLarge {
+	@media (min-width: #{$screen-large}) {
+		@content;
+	}
+}
+
+@mixin screenXLarge {
+	@media (min-width: #{$screen-xlarge}) {
+		@content;
+	}
+}

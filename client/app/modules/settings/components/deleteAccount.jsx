@@ -27,10 +27,10 @@ export default class Component extends React.Component {
 		}
 
 		return (
-			<Form noValidate fieldErrorComponent={FieldErrorComponent} onSubmit={this.submit} className='settings-form change-password-form form--purple'>
+			<Form noValidate fieldErrorComponent={FieldErrorComponent} onSubmit={this.submit} className='settings-form change-password-form purple-form'>
 				<PasswordInput required name='current_password' error={current_password} placeholder='confirm password' />
-				<Submit className='settings-form__delete-account btn btn--invisible' value='delete account' />
-				<Link to='/settings' className='settings-form__cancel btn btn--invisible'>cancel</Link>
+				<Submit className='settings-form__delete-account btn btn--clear assistant' value='delete account' />
+				<Link to='/settings' className='settings-form__cancel btn btn--clear assistant'>cancel</Link>
 			</Form>
 		);
 	}

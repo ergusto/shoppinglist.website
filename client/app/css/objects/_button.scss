@@ -1,20 +1,25 @@
+@import '../imports';
+
 .btn {
-	background: white;
+	background: none;
 	padding: 8px 10px;
-	border: 1px solid #ddd;
+	border: 1px solid color('lighter-grey');
 	text-decoration: none;
 	text-align: center;
-	transition: all 0.3s linear;
+	transition: background-color .3s linear;
 	border-radius: 4px;
 	font-size: 0.9rem;
+	display: inline-block;
 }
 
 .no-touch .btn:hover {
 	cursor: pointer;
 }
 
+/* STATE */
+
 .btn--small {
-	padding: 4px 10px;
+	padding: $s1 $s2;
 	font-size: 80%;
 }
 
@@ -22,6 +27,10 @@
 	display: block;
 	width: 100%;
 }
+
+/* THEMES */
+
+/* BLUE */
 
 .btn--blue {
 	background: #203566; 
@@ -40,6 +49,8 @@
 	color: white;
 }
 
+/* PURPLE */
+
 .btn--purple {
 	background: #203566; 
 	color: white;
@@ -56,13 +67,13 @@
 	color: white;
 }
 
-.btn--invisible {
+/* INVISIBLE */
+
+.btn--clear {
 	background: transparent;	
 	border-color: transparent;
-	color: white;
 }
 
-.no-touch .btn--invisible:hover {
+.no-touch .btn--clear:hover {
 	background: rgba(255, 255, 255, 0.1);
-	color: white;	
 }

@@ -8,7 +8,7 @@ import DeleteAccountRoute from '../routes/deleteAccount.jsx';
 import './settings.scss';
 
 const Settings = () => (
-	<div className='settings purple-box'>
+	<div className='settings purple-box w-90 tmd-w-60 ssm-w-40 sxlg-w-30 mw-6 mt4'>
 		<header className='settings-header purple-box__header'>
 			<h3>settings</h3>
 		</header>

@@ -1,0 +1,21 @@
+@import '../imports';
+
+.bs {
+	box-shadow: $box-shadow;
+}
+
+.bsi {
+	box-shadow: $box-shadow-inset;
+}
+
+.bsh {
+	box-shadow: $box-shadow-heavy;
+}
+
+.bshi {
+	box-shadow: $box-shadow-heavy-inset;
+}
+
+.bshl {
+	box-shadow: $box-shadow-lip;
+}

@@ -70,12 +70,12 @@ export default class Component extends React.Component {
 		if (showCompleteConfirm) {
 			return (
 				<div className='item-mark-complete-confirm'>
-					<a onClick={this.toggleCompleteConfirm} href='#' className='item-cancel-mark-complete pull-right btn btn--small btn--invisible'>cancel</a>
-					<a onClick={this.markComplete} href='#' className='item-confirm-mark-complete pull-right btn btn--small btn--invisible'>confirm</a>
+					<a onClick={this.toggleCompleteConfirm} href='#' className='item-cancel-mark-complete pull-right btn btn--small btn--clear'>cancel</a>
+					<a onClick={this.markComplete} href='#' className='item-confirm-mark-complete pull-right btn btn--small btn--clear'>confirm</a>
 				</div>
 			);
 		} else {
-			return <a onClick={this.toggleCompleteConfirm} href='#' className='item-mark-complete pull-right btn btn--small btn--invisible'>complete</a>;
+			return <a onClick={this.toggleCompleteConfirm} href='#' className='item-mark-complete pull-right btn btn--small btn--clear'>complete</a>;
 		}
 	}
 
@@ -98,8 +98,8 @@ export default class Component extends React.Component {
 				<div className='item-body clearfix'>
 					<menu className='item-body-menu clearfix'>
 						{this.renderMarkComplete()}
-						<a onClick={this.toggleForm} href='#' className='item-edit pull-left btn btn--small btn--invisible'>{shouldShowForm ? 'cancel' : 'edit'}</a>
-						{item.url ? <a href={item.url} className='item-url pull-left btn btn--small btn--invisible'>visit</a> : null}
+						<a onClick={this.toggleForm} href='#' className='item-edit pull-left btn btn--small btn--clear'>{shouldShowForm ? 'cancel' : 'edit'}</a>
+						{item.url ? <a href={item.url} className='item-url pull-left btn btn--small btn--clear'>visit</a> : null}
 					</menu>
 					<VelocityTransitionGroup component='div' enter={{ animation: 'slideDown', duration: 400 }} leave={{ animation: 'slideUp', duration: 400 }}>
 						{this.renderItemForm()}

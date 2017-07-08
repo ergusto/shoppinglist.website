@@ -1,5 +1,4 @@
 import React from 'react';
-import { GridContainer, Row, Column } from 'grid-react';
 
 import { ItemCreate } from '../item';
 import { ItemList } from '../items';
@@ -44,16 +43,10 @@ export default class Component extends React.Component {
 		}
 
 		return (
-			<div>
-				<GridContainer>
-					<Row>
-						<Column tabletLarge={8} tabletLargeOffset={2}>
-							<ItemCreate />
-							{contentHtml}
-							{nextHtml}
-						</Column>
-					</Row>
-				</GridContainer>
+			<div className='mt3 mw-7 centred'>
+				<ItemCreate />
+				{contentHtml}
+				{nextHtml}
 			</div>
 		);
 	}

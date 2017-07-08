@@ -1,16 +1,15 @@
+@import '../imports';
+
 html {
-	font-family: 'Open Sans', 'Lucida Grande', sans-serif;
+	font-size: 16px;
+	color: color(slate-grey);
 	overflow-y: scroll;
+
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+	
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-}
-
-body {
-	height: 100%;
-	min-height: 100%;
-	width: 100%;
 }
 
 *, *:before, *:after {

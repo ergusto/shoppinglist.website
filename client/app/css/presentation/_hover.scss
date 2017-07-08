@@ -1,0 +1,23 @@
+@import '../imports';
+
+.h-underline:hover {
+	text-decoration: underline;
+}
+
+.h-strike:hover {
+	text-decoration: line-through;
+}
+
+.h-normal:hover {
+	text-decoration: none;
+}
+
+@each $key, $value in $colors {
+	.no-touch .h-bg-#{$key}:hover {
+		background-color: $value;
+	}
+
+	.no-touch .h-#{$key}:hover {
+		color: $value;
+	}
+}

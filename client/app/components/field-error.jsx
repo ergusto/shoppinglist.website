@@ -6,7 +6,7 @@ export default class Component extends React.Component {
 	render() {
 		const { error } = this.props;
 		return (
-			<VelocityTransitionGroup runOnMount={false} component='div' enter={{ animation: 'slideDown', easing: 'easeInOutQuad', duration: 200 }} leave={{ animation: 'slideUp', easing: 'easeInOutQuad', duration: 200 }}>
+			<VelocityTransitionGroup runOnMount={false} component='div' enter={{ animation: 'slideDown', duration: 200 }} leave={{ animation: 'slideUp', duration: 200 }}>
 				{error ? <div className='field-error'>{error}</div> : null}
 			</VelocityTransitionGroup>
 		);

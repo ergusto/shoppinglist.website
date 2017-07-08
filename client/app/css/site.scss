@@ -1,12 +1,13 @@
 $fa-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font-awesome";
-@import 'vendor/normalize.css';
-@import '~grid-react/dist/style.css';
 
-@import 'fonts/fonts';
+@import "~normalize.css";
+@import "~font-awesome/scss/font-awesome";
 
 @import 'base/base';
-
-@import 'helpers/helpers';
-
+@import 'element/element';
+@import 'form/form';
+@import 'layout/layout';
 @import 'objects/objects';
+@import 'positioning/positioning';
+@import 'presentation/presentation';
+@import 'typography/typography';

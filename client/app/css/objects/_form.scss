@@ -6,37 +6,27 @@ fieldset {
 	margin: 0;
 }
 
-.form-error, .field-error {
-	display: inline-block;
-	color: #777;
-	float: left;
-	padding: 0;
-}
-
-.field-error {
-	padding-left: 12px;
-	padding-right: 12px;
-	margin-top: 8px;
-}
-
 .form-error {
 	padding-left: 12px;
 	margin-bottom: 10px;
 }
-.form--purple {
+
+.purple-form {
 
 	.field-error {
 		color: white;
 		font-size: 80%;
 		margin-top: 0px;
+		margin-left: 10px;
 	}
 
 	.field {
-		background: rgba(32, 53, 102, 0.6);
+		background: color(dark-blue);
 		border: 0px;
 		margin: 10px 0;
+		padding: 10px;
 		color: white;
-		font-size: 90%;
+		font-family: 'Assistant';
 
 		&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 			color: rgba(255, 255, 255, 0.8);
@@ -60,7 +50,35 @@ fieldset {
 	}
 
 	.btn {
-		@extend .btn--invisible;
+		@extend .btn--clear;
 	}
 
+}
+
+.white-form {
+	fieldset {
+		padding: .5rem 0 1.5rem;
+		position: relative;
+	}
+
+	.form-error {
+		float: none;
+		margin-bottom: 0px;
+		margin-top: 14px;
+		font-size: .7rem;
+		display: block;
+		text-align: center;
+		padding-left: 0;
+	}
+
+	.field-error {
+		font-size: .75rem;
+		position: absolute;
+		bottom: 2px;
+		left: 11px;
+	}
+
+	.form-error, .field-error {
+		color: #be1c1f;
+	}
 }

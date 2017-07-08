@@ -32,14 +32,14 @@ export default class Component extends React.Component {
 		const { item, errors } = this.props;
 		const { title, url, description } = errors;
 		return (
-			<Form noValidate onSubmit={this.submit} className='item-edit-form form--purple'>
+			<Form noValidate onSubmit={this.submit} className='item-edit-form purple-form'>
 				<TextInput required name='title' placeholder='title' error={title} defaultValue={item.title} />
 				<URLInput name='url' placeholder='url' error={url} defaultValue={item.url} />
 				<Textarea elementRef={description => {
 					this.description = description;
 					this.setDescriptionHeight();
 				}} onInput={this.descriptionChangeHandler} name='description' placeholder='description' error={description} defaultValue={item.description} rows='3'>{item.description}</Textarea>
-				<Submit className='btn btn--invisible' />
+				<Submit className='btn btn--clear assistant' />
 			</Form>
 		);
 	}

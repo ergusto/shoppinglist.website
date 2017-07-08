@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { GridContainer, Row, Column } from 'grid-react';
 import { Form, TextInput, PasswordInput, Submit } from 'reactform';
 
 import Loading from '../../../components/loading/component.jsx';
@@ -34,13 +33,7 @@ export default class Component extends React.Component {
 	render() {
 		return (
 			<div ref={wrapper => this.wrapper = wrapper} className='white justify-centre text-centred'>
-				<GridContainer>
-					<Row>
-						<Column tabletSmall='10' tabletSmallOffset='1' tabletLarge='6' tabletLargeOffset='3' screenSmall='4' screenSmallOffset='4' centre>
-							<Registration />
-						</Column>
-					</Row>
-				</GridContainer>
+				<Registration />
 			</div>
 		);
 	}

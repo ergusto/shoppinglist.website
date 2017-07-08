@@ -24,7 +24,7 @@ export default class Component extends React.Component {
 	render() {
 		return (
 			<div ref={wrapper => this.wrapper = wrapper} className='white justify-centre text-centred'>
-				<div className='padding'>
+				<div className='padding align-center'>
 					<h1>shoppinglist.website</h1>
 					<hr />
 					<h3>A simple shopping list that does nothing more than list the things you want to buy.</h3>
