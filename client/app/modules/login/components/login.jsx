@@ -1,14 +1,14 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { Form, TextInput, PasswordInput, Submit } from 'reactform';
+import { Field, reduxForm } from 'redux-form';
 
-import Loading from '../../../components/loading/component.jsx';
-import { emailValidator } from '../../../lib';
-import FieldErrorComponent from '../../../components/auth-field-error.jsx';
+import Loading from 'app/components/loading/component.jsx';
+import { renderField } from 'modules/form';
+import validator from '../validator.js';
 
 import './login.scss';
 
-export default class Component extends React.Component {
+class Component extends React.Component {
 
 	submit = ({ email, password }) => {
 		this.props.actions.loginUser(email, password);	
@@ -16,7 +16,7 @@ export default class Component extends React.Component {
 
 	render() {
 		let loader;
-		const { authenticated, loading, error, errors } = this.props;
+		const { handleSubmit, authenticated, loading, error, errors } = this.props;
 
 		if (loading) {
 			loader = <Loading />;
@@ -28,15 +28,20 @@ export default class Component extends React.Component {
 
 		return (
 			<div className='w-90 mw-6'>
-				<Form fieldErrorComponent={FieldErrorComponent} formError={error} onSubmit={this.submit} className='white-form bg-spaceship-white faint-blue bsh bra pa3 mh3 tmd-mh5 mb3' noValidate>
+				<form onSubmit={handleSubmit(this.submit)} className='white-form bg-spaceship-white faint-blue bsh bra pa3 mh3 tmd-mh5 mb3' noValidate>
 					<h3 className='align-center mb2 fs5'>Login</h3>
-					<TextInput className=' bs' required name='email' placeholder='email' validator={emailValidator} />
-					<PasswordInput className=' bs' required name='password' placeholder='password' />
-					<Submit className='btn btn--blue btn--block fs6 mt2' value='login' />
+					<Field name='email' placeholder='email' type='text' component={renderField} />
+					<Field name='password' placeholder='password' type='password' component={renderField} />
+					<button type='submit' className='btn btn--blue btn--block fs6 mt2'>login</button>
 					{loader}
-				</Form>
+				</form>
 			</div>
 		);
 	}
 
 }
+
+export default reduxForm({
+	form: 'login',
+	validate: validator,
+})(Component);

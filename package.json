@@ -37,6 +37,7 @@
     "react-timeago": "^3.3.0",
     "reactform": "^1.0.81",
     "redux": "^3.7.0",
+    "redux-form": "^6.8.0",
     "redux-thunk": "^2.2.0",
     "sanitize.css": "^5.0.0",
     "sass-loader": "^6.0.5",

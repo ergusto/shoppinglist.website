@@ -30,7 +30,6 @@ export default createReducer(initialState, {
 		});
 	},
 	[LOGIN_FAILURE]: (state, payload) => {
-		console.log(payload);
 		return Object.assign({}, state, {
 			loading: false,
 			error: payload.error,
