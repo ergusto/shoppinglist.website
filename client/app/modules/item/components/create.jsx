@@ -16,7 +16,7 @@ class Component extends React.Component {
 
 		return (
 			<form onSubmit={handleSubmit(this.submit)} className='add-item'>
-				<Field name='title' placeholder='add item' type='text' component='input' className='field' />
+				<Field required name='title' placeholder='add item' type='text' component='input' className='field' />
 				<div className='add-item-submit-wrap'>
 					<input type='submit' className='btn assistant' value='submit' />
 				</div>
