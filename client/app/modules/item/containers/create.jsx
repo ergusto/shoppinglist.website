@@ -8,7 +8,9 @@ import { createItem, addItem } from '../actions/create.js'
 import Component from '../components/create.jsx';
 
 const mapStateToProps = state => {
-	return state.create;
+	return {
+		api: state.create
+	};
 };
 
 const mapDispatchToProps = dispatch => ({

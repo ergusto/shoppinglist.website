@@ -14,7 +14,8 @@ class Component extends React.Component {
 
 	render() {
 		let loader;
-		const { handleSubmit, loading, authenticated, error, errors } = this.props;
+		const { handleSubmit, authenticated } = this.props;
+		const { loading, error, errors } = this.props.api;
 
 		if (authenticated) {
 			return <Redirect to='/' />;
@@ -23,7 +24,6 @@ class Component extends React.Component {
 		if (loading) {
 			loader = <Loading />;
 		}
-		console.log(this.props);
 
 		return (
 			<div className='w-90 mw-6'>

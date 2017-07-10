@@ -7,7 +7,9 @@ import { registerUser } from '../actions.js';
 import Component from '../components/registration.jsx';
 
 const mapStateToProps = state => {
-	return Object.assign({}, state.auth, state.registration);
+	return Object.assign({}, state.auth, {
+		api: state.registration
+	});
 };
 
 const mapDispatchToProps = dispatch => ({

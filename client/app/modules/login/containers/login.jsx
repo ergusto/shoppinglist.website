@@ -7,7 +7,9 @@ import { loginUser } from '../actions.js';
 import Component from '../components/login.jsx';
 
 const mapStateToProps = state => {
-	return Object.assign({}, state.auth, state.login);
+	return Object.assign({}, state.auth, {
+		api: state.login
+	});
 };
 
 const mapDispatchToProps = dispatch => ({

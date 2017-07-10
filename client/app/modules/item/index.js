@@ -7,3 +7,4 @@ export default reducer;
 export { default as ItemCreate } from './containers/create.jsx';
 export { default as ItemEdit } from './containers/edit.jsx';
 export { default as Item } from './containers/item.jsx';
+export { default as formPlugin } from './formPlugin.js';

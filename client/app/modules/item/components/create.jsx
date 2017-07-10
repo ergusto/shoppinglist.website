@@ -1,25 +1,32 @@
 import React from 'react';
-import { Form, Input, Submit } from 'reactform';
+import { Field, reduxForm } from 'redux-form';
+import validator from '../validator.js';
 
 import './create.scss';
 
-export default class Component extends React.Component {
+class Component extends React.Component {
 
-	create = item => {
+	submit = item => {
 		this.props.actions.createItem(item);
 	};
 
 	render() {
-		const { success, error, errors } = this.props;
+		const { handleSubmit } = this.props;
+		const { success, error, errors } = this.props.api;
 
 		return (
-			<Form reset={success} onSubmit={this.create} onError={this.onError} className='add-item'>
-				<Input required name='title' placeholder='add item' fieldsetComponent={false} hideError={true} />
+			<form onSubmit={handleSubmit(this.submit)} className='add-item'>
+				<Field name='title' placeholder='add item' type='text' component='input' className='field' />
 				<div className='add-item-submit-wrap'>
-					<Submit className='btn assistant' />
+					<input type='submit' className='btn assistant' value='submit' />
 				</div>
-			</Form>
+			</form>
 		);
 	}
 
 }
+
+export default reduxForm({
+	form: 'create',
+	validate: validator,
+})(Component);
