@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { mapFormStateToProps, mapFormDispatchToProps } from 'lib';
 import { createItem, addItem } from '../actions/create.js'
 import Component from '../components/create.jsx';
 

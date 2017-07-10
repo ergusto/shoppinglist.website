@@ -4,7 +4,7 @@ import {
 	ITEM_EDIT_SUCCESS
 } from '../actionTypes.js';
 
-import { CALL_API, METHOD_PATCH } from '../../../middleware/api.js';
+import { CALL_API, METHOD_PATCH } from 'app/middleware/api.js';
 
 export const editItem = (id, attrs) => ({
 	payload: { id },

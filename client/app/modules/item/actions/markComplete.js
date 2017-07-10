@@ -4,7 +4,7 @@ import {
 	ITEM_MARK_COMPLETE_SUCCESS
 } from '../actionTypes.js';
 
-import { CALL_API, METHOD_PATCH } from '../../../middleware/api.js';
+import { CALL_API, METHOD_PATCH } from 'app/middleware/api.js';
 
 export const markItemComplete = id => ({
 	[CALL_API]: {

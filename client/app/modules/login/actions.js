@@ -4,7 +4,7 @@ import {
 	LOGIN_SUCCESS
 } from './actionTypes.js';
 
-import { CALL_API, METHOD_POST } from '../../middleware/api.js';
+import { CALL_API, METHOD_POST } from 'app/middleware/api.js';
 
 export const loginUser = (email, password) => ({
 	[CALL_API]: {

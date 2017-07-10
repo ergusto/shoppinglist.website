@@ -1,6 +1,7 @@
+import { combineReducers } from 'redux';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
-import { createReducer } from '../../lib';
+import { createReducer } from 'lib';
 import {
 	ITEM_CREATE_REQUEST,
 	ITEM_CREATE_SUCCESS,

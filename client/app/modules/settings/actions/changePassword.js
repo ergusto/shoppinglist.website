@@ -1,4 +1,4 @@
-import { CALL_API, METHOD_POST } from '../../../middleware/api.js';
+import { CALL_API, METHOD_POST } from 'app/middleware/api.js';
 import {
 	CHANGE_PASSWORD_REQUEST,
 	CHANGE_PASSWORD_FAILURE,

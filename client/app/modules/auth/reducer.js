@@ -1,10 +1,10 @@
-import { createReducer } from '../../lib';
+import { createReducer } from 'lib';
 import { isAuthenticated, getToken, getUser } from './storage.js';
 
-import { UNAUTHORISED } from '../../middleware/api.js';
-import { LOGOUT_SUCCESS } from '../auth';
-import { LOGIN_SUCCESS } from '../login';
-import { REGISTRATION_SUCCESS } from '../registration';
+import { UNAUTHORISED } from 'app/middleware/api.js';
+import { LOGOUT_SUCCESS } from 'modules/auth';
+import { LOGIN_SUCCESS } from 'modules/login';
+import { REGISTRATION_SUCCESS } from 'modules/registration';
 
 const initialState = {
 	authenticated: isAuthenticated() ? true : false,

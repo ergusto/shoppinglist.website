@@ -1,4 +1,4 @@
-import { CALL_API, METHOD_POST } from '../../../middleware/api.js';
+import { CALL_API, METHOD_POST } from 'app/middleware/api.js';
 import {
 	DELETE_ACCOUNT_REQUEST,
 	DELETE_ACCOUNT_FAILURE,

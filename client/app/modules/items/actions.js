@@ -1,11 +1,10 @@
-import { setParams } from '../../lib';
+import { setParams } from 'lib';
+import { CALL_API, METHOD_GET } from 'app/middleware/api.js';
 import {
 	ITEMS_REQUEST,
 	ITEMS_FAILURE,
 	ITEMS_SUCCESS
 } from './actionTypes.js';
-
-import { CALL_API, METHOD_GET } from '../../middleware/api.js';
 
 const baseUrl = '/api/items/';
 
