@@ -33,7 +33,7 @@ export default class Component extends React.Component {
 
 		return (
 			<div className='w-90 mw-6'>
-				<Form fieldErrorComponent={FieldErrorComponent} formError={error} onSubmit={this.submit} className='white-form bg-white faint-blue bsh bra pa3 mh3 tmd-mh5  mb3' noValidate>
+				<Form fieldErrorComponent={FieldErrorComponent} formError={error} onSubmit={this.submit} className='white-form bg-spaceship-white faint-blue bsh bra pa3 mh3 tmd-mh5  mb3' noValidate>
 					<h3 className='align-center mb2 fs5'>Register</h3>
 					<TextInput className='bs' required name='email' error={email} placeholder='email' validator={emailValidator} />
 					<PasswordInput className='bs' required name='password' error={password} validator={[passwordLengthValidator, passwordEqualityValidator]} placeholder='password' />
