@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 
 import { objectNaiveEquivalence } from 'lib';
 import { renderField, renderTextarea } from 'modules/form';
+import validator from '../validator.js';
 
 import './edit.scss';
 
@@ -50,4 +51,6 @@ class Component extends React.Component {
 
 }
 
-export default reduxForm({})(Component);
+export default reduxForm({
+	validate: validator
+})(Component);
