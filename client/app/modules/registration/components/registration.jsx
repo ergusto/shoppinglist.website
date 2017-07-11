@@ -23,7 +23,7 @@ class Component extends React.Component {
 
 		if (loading) {
 			loader = <Loading />;
-		}console.log(errors);
+		}
 
 		return (
 			<div className='w-90 mw-6'>

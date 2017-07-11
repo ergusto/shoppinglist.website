@@ -1,5 +1,5 @@
 import request from 'superagent';
-import { Storage, api, getCookie, getBaseHeaders } from '../../lib';
+import { Storage, api, getCookie, getBaseHeaders } from 'lib';
 
 const storage = new Storage('auth');
 export const getToken = () => storage.get('token');

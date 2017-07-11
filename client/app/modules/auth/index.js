@@ -6,4 +6,4 @@ import reducer from './reducer.js';
 
 export default reducer;
 
-export { default as LogoutRoute } from './routes/logout.jsx'
+export { default as LogoutRoute } from './routes/logout.jsx';
