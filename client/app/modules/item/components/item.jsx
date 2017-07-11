@@ -53,7 +53,7 @@ export default class Component extends React.Component {
 	renderItemForm() {
 		const { item, shouldShowForm } = this.props;
 		if (shouldShowForm) {
-			return <ItemEdit item={item} />;
+			return <ItemEdit item={item} form={`item-edit-${item.id}`} initialValues={item} />;
 		}
 	}
 

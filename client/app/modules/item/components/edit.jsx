@@ -1,10 +1,12 @@
 import React from 'react';
-import { Form, TextInput, URLInput, Textarea, Submit } from 'reactform';
-import { objectNaiveEquivalence } from '../../../lib';
+import { Field, reduxForm } from 'redux-form';
+
+import { objectNaiveEquivalence } from 'lib';
+import { renderField, renderTextarea } from 'modules/form';
 
 import './edit.scss';
 
-export default class Component extends React.Component {
+class Component extends React.Component {
 
 	submit = attrs => {
 		const { actions, item } = this.props;
@@ -24,24 +26,28 @@ export default class Component extends React.Component {
 		}
 	}
 
-	descriptionChangeHandler = event => {
+	onChange = event => {
+		this.setDescriptionHeight();
+	};
+
+	descriptionRef = ref => {
+		this.description = ref;
 		this.setDescriptionHeight();
 	};
 
 	render() {
-		const { item, errors } = this.props;
+		const { handleSubmit, item, errors } = this.props;
 		const { title, url, description } = errors;
 		return (
-			<Form noValidate onSubmit={this.submit} className='item-edit-form purple-form'>
-				<TextInput required name='title' placeholder='title' error={title} defaultValue={item.title} />
-				<URLInput name='url' placeholder='url' error={url} defaultValue={item.url} />
-				<Textarea elementRef={description => {
-					this.description = description;
-					this.setDescriptionHeight();
-				}} onInput={this.descriptionChangeHandler} name='description' placeholder='description' error={description} defaultValue={item.description} rows='3'>{item.description}</Textarea>
-				<Submit className='btn btn--clear assistant' />
-			</Form>
+			<form onSubmit={handleSubmit(this.submit)} className='item-edit-form purple-form' noValidate>
+				<Field name='title' placeholder='title' type='text' serverError={errors['title']} component={renderField} />
+				<Field name='url' placeholder='url' type='url' serverError={errors['url']} component={renderField} />
+				<Field name='description' placeholder='description' type='description' serverError={errors['description']} component={renderTextarea} onChange={this.onChange} elementRef={this.descriptionRef} />
+				<button type='submit' className='btn btn--clear spaceship-white'>submit</button>
+			</form>
 		);
 	}
 
 }
+
+export default reduxForm({})(Component);

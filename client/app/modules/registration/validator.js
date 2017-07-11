@@ -10,10 +10,18 @@ export default createValidator({
 		if (!value) {
 			return 'This field is required';
 		}
+
+		if (value.length < 8) {
+			return 'Password must be 8 characters or more';
+		}
 	},
 	repeat_password: value => {
 		if (!value) {
 			return 'This field is required';
+		}
+
+		if (value.length < 8) {
+			return 'Password must be 8 characters or more';
 		}
 	},
 });

@@ -1,4 +1,4 @@
-import { createFormPlugin } from 'lib';
+import { createFormPlugin, FORM_PLUGIN_All } from 'lib';
 import { ITEM_CREATE_SUCCESS } from './actionTypes.js';
 
 export default createFormPlugin({

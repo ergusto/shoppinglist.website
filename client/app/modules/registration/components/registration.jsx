@@ -23,15 +23,15 @@ class Component extends React.Component {
 
 		if (loading) {
 			loader = <Loading />;
-		}
+		}console.log(errors);
 
 		return (
 			<div className='w-90 mw-6'>
 				<form onSubmit={handleSubmit(this.submit)} className='white-form bg-spaceship-white faint-blue bsh bra pa3 mh3 tmd-mh5 mb3' noValidate>
 					<h3 className='align-center mb2 fs5'>Register</h3>
-					<Field name='email' placeholder='email' type='text' component={renderField} />
-					<Field name='password' placeholder='password' type='password' component={renderField} />
-					<Field name='repeat_password' placeholder='repeat password' type='password' component={renderField} />
+					<Field name='email' placeholder='email' type='text' serverError={errors['email']} component={renderField} />
+					<Field name='password' placeholder='password' type='password' serverError={errors['password']} component={renderField} />
+					<Field name='repeat_password' placeholder='repeat password' type='password' serverError={errors['password']} component={renderField} />
 					<button type='submit' className='btn btn--blue btn--block fs6 mt2'>login</button>
 					{loader}
 				</form>
