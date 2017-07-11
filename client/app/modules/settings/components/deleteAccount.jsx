@@ -1,13 +1,14 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { Form, PasswordInput, Submit } from 'reactform';
+import { Field, reduxForm } from 'redux-form';
+import { renderField } from 'modules/form';
+import validator from '../validators/deleteAccount.js';
 
-import Loading from '../../../components/loading/component.jsx';
-import FieldErrorComponent from '../../../components/field-error.jsx';
+import Loading from 'app/components/loading/component.jsx';
 
 import './deleteAccount.scss';
 
-export default class Component extends React.Component {
+class Component extends React.Component {
 
 	submit = ({ current_password }) => {
 		this.props.actions.deleteAccount(current_password);
@@ -15,8 +16,9 @@ export default class Component extends React.Component {
 
 	render() {
 		let loader;
-		const { authenticated, success, loading, error, errors  } = this.props;
-		const { current_password } = errors;
+		const { handleSubmit, authenticated, api } = this.props;
+		const { success, loading, error, errors } = api;
+		const { current_password, new_password } = errors;
 
 		if (success) {
 			return <Redirect to='/logout' />;
@@ -27,12 +29,18 @@ export default class Component extends React.Component {
 		}
 
 		return (
-			<Form noValidate fieldErrorComponent={FieldErrorComponent} onSubmit={this.submit} className='settings-form change-password-form purple-form'>
-				<PasswordInput required name='current_password' error={current_password} placeholder='confirm password' />
-				<Submit className='settings-form__delete-account btn btn--clear assistant' value='delete account' />
-				<Link to='/settings' className='settings-form__cancel btn btn--clear assistant'>cancel</Link>
-			</Form>
+			<form onSubmit={handleSubmit(this.submit)} className='settings-form change-password-form purple-form'>
+
+				<Field name='current_password' placeholder='confirm password' type='password' serverError={errors['current_password']} component={renderField} />
+				<input type='submit' className='btn btn--clear assistant' value='delete account' />
+				<Link to='/settings' className='btn btn--clear assistant'>cancel</Link>
+			</form>
 		);
 	}
 
 }
+
+export default reduxForm({
+	form: 'delete_account',
+	validate: validator
+})(Component);

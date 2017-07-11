@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { Form, TextInput, PasswordInput, Submit } from 'reactform';
 
 import Loading from '../../../components/loading/component.jsx';
 import { emailValidator } from '../../../lib';

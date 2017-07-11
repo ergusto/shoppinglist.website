@@ -8,7 +8,7 @@ const createValidator = rules => (values, props) => {
 	return Object.keys(rules).reduce((errors, key) => {
 		const validator = rules[key];
 		if (validator) {
-			errors[key] = validator(values[key], props);
+			errors[key] = validator(values[key], values, props);
 		}
 		return errors;
 	}, {});

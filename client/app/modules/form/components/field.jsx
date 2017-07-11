@@ -7,11 +7,11 @@ export default class Component extends React.Component {
 		const { serverError, input, placeholder, type,  meta: { touched, error, warning } } = this.props;
 		if (serverError) errorText = serverError;
 		if (error) errorText = error;
-		if (serverError) console.log(serverError);
+		console.log(errorText)
 		return (
-			<fieldset className={errorText ? 'fieldset--has-error' : null}>
+			<fieldset className={errorText && touched && 'fieldset--has-error'}>
 				<input className='field bs' {...input} placeholder={placeholder} type={type} />
-				{(errorText && touched) ? <div className='field-error'>{errorText}</div> : null}
+				{errorText && touched && <div className='field-error'>{errorText}</div>}
 			</fieldset>
 		);
 	}

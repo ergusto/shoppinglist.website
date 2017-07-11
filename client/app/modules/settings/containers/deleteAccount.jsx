@@ -7,7 +7,9 @@ import { deleteAccount } from '../actions/deleteAccount.js';
 import Component from '../components/deleteAccount.jsx';
 
 const mapStateToProps = state => {
-	return Object.assign({}, state.settings);
+	return Object.assign({}, {
+		api: state.settings
+	});
 };
 
 const mapDispatchToProps = dispatch => ({

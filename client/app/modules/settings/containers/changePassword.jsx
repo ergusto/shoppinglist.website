@@ -7,7 +7,9 @@ import { changePassword } from '../actions/changePassword.js';
 import Component from '../components/changePassword.jsx';
 
 const mapStateToProps = state => {
-	return Object.assign({}, state.settings);
+	return Object.assign({}, {
+		api: state.settings
+	});
 };
 
 const mapDispatchToProps = dispatch => ({
