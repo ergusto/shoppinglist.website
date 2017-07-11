@@ -4,7 +4,7 @@ module.exports = {
 	context: __dirname,
 	entry: [
 		'babel-polyfill',
-		'../app/startup.jsx'
+		'../app'
 	],
 	output: {
 		path: path.resolve('./static/build/'),

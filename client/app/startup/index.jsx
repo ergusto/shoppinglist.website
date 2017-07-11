@@ -3,20 +3,14 @@ import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import { render } from 'react-dom';
 
-import app from './app.jsx';
+import App from './app.jsx';
 
-const start = Component => (
+const start = () => (
 	render(
 		<AppContainer>
-			<Component />
+			<App />
 		</AppContainer>,
 	document.getElementById('root'))
 );
 
-start(app);
-
-if (module.hot) {
-	module.hot.accept('./app.jsx', function() {
-		start(app);
-	});
-}
+export default start;

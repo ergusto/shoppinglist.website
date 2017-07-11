@@ -9,7 +9,7 @@ config.entry = [
 	'webpack-dev-server/client?http://localhost:3000',
 	'webpack/hot/only-dev-server',
 	'babel-polyfill',
-	'../app/startup.jsx'
+	'../app'
 ];
 
 config.output.publicPath = 'http://localhost:3000/static/build/';

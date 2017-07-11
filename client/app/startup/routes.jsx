@@ -2,17 +2,16 @@ import React from 'react';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 
-import { PublicRoute, ProtectedRoute, AuthBasedSwitch } from './components/route-helpers.jsx';
+import Header from '../components/header/component.jsx';
+import NotFoundRoute from '../components/errors/not-found-route.jsx';
+import { PublicRoute, ProtectedRoute, AuthBasedSwitch } from '../components/route-helpers.jsx';
 
-import Header from './components/header/component.jsx';
-import NotFoundRoute from './components/errors/not-found-route.jsx';
-
-import { HomeRoute } from './modules/home';
-import { LandingRoute } from './modules/landing';
-import { LoginRoute } from './modules/login';
-import { LogoutRoute } from './modules/auth';
-import { RegistrationRoute } from './modules/registration';
-import { SettingsRoute } from './modules/settings';
+import { HomeRoute } from 'modules/home';
+import { LandingRoute } from 'modules/landing';
+import { LoginRoute } from 'modules/login';
+import { LogoutRoute } from 'modules/auth';
+import { RegistrationRoute } from 'modules/registration';
+import { SettingsRoute } from 'modules/settings';
 
 const Routes = ({ history }) => (
 	<ConnectedRouter history={history}>

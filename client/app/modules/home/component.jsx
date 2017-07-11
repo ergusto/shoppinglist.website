@@ -36,7 +36,7 @@ export default class Component extends React.Component {
 			if (!loading) {
 				contentHtml = (
 					<div className='empty-items-message'>
-						<p className='white medium'>Items will appear here once you've added some using the form above.</p>
+						<p className='spaceship-white medium'>Items will appear here once you've added some using the form above.</p>
 					</div>
 				);
 			}
