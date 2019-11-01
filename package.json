@@ -23,7 +23,7 @@
     "grid-react": "^1.0.16",
     "history": "^4.6.3",
     "humps": "^2.0.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "node-sass": "^4.5.3",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.5.10",
