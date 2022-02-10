@@ -24,7 +24,7 @@
     "history": "^4.6.3",
     "humps": "^2.0.1",
     "lodash": "^4.17.13",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
